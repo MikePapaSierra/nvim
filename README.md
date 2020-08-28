@@ -3,7 +3,16 @@
 Neovim configuration files.
 
 ## Keybindings
-TODO: Put list of all custom/important keybindings.
+
+ - <kbd>j</kbd><kbd>j</kbd> - mapped to work as <kbd>Esc</kbd>
+ - <kbd>k</kbd><kbd>k</kbd> - mapped to work as <kbd>Esc</kbd>
+ - <kbd>Ctrl</kbd> + <kbd>c</kbd> - mapped to work as <kbd>Esc</kbd>
+ - <kbd>Tab</kbd> - next buffer
+ - <kbd>Shift</kbd> + <kbd>Tab</kbd> - previous buffer
+ - 2x<kbd>Ctrl</kbd> + <kbd>n</kbd> - toggle line numering
+ - <kbd>F5</kbd> - toggle showing white spaces
+ - <kbd>F6</kbd> - toggle between paste no-paste
+ - <kbd>F7</kbd> - toggle spell checking
 
 ## Plugins
 
