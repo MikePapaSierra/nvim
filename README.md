@@ -9,7 +9,7 @@ Neovim configuration files.
  - <kbd>Ctrl</kbd> + <kbd>c</kbd> - mapped to work as <kbd>Esc</kbd>
  - <kbd>Tab</kbd> - next buffer
  - <kbd>Shift</kbd> + <kbd>Tab</kbd> - previous buffer
- - 2x<kbd>Ctrl</kbd> + <kbd>n</kbd> - toggle line numering
+ - 2x <kbd>Ctrl</kbd> + <kbd>n</kbd> - toggle line numering
  - <kbd>F5</kbd> - toggle showing white spaces
  - <kbd>F6</kbd> - toggle between paste no-paste
  - <kbd>F7</kbd> - toggle spell checking
