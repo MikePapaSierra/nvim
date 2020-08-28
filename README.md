@@ -2,6 +2,9 @@
 
 Neovim configuration files.
 
+Below is example screenshot of neovim configuration:
+![Neovim configuration screenshot](/images/neovim-config-screenshot.png)
+
 ## Keybindings
 
  - <kbd>j</kbd><kbd>j</kbd> - mapped to work as <kbd>Esc</kbd>
