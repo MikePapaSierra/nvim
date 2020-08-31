@@ -44,6 +44,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " terraform
     Plug 'hashivim/vim-terraform'
 
+    " Spell checking
+    Plug 'sedm0784/vim-you-autocorrect'
 
 call plug#end()
 
