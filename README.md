@@ -36,6 +36,7 @@ Here's list of all plugins used in the configuration:
 - [rhubarb.vim](https://github.com/tpope/vim-rhubarb)
 - [Conquer of Completion](https://github.com/neoclide/coc.nvim)
 - [Terraform](https://github.com/hashivim/vim-terraform)
+- [vim-you-autocorrect](https://github.com/sedm0784/vim-you-autocorrect)
 
 Big kudos for authors of that plugins.
 
