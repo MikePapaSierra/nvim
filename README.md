@@ -32,6 +32,8 @@ Here's list of all plugins used in the configuration:
 - [VimDevIcons](https://github.com/ryanoasis/vim-devicons)
 - [Startify](https://github.com/mhinz/vim-startify)
 - [Signify](https://github.com/mhinz/vim-signify)
+- [fugitive.vim](https://github.com/tpope/vim-fugitive)
+- [rhubarb.vim](https://github.com/tpope/vim-rhubarb)
 - [Conquer of Completion](https://github.com/neoclide/coc.nvim)
 - [Terraform](https://github.com/hashivim/vim-terraform)
 
