@@ -32,7 +32,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " startify
     Plug 'mhinz/vim-startify'
+    
+    " Git related plugins
     Plug 'mhinz/vim-signify'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-rhubarb'
 
     " coc
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
