@@ -1,6 +1,5 @@
 " My ESC key is jamming from time to time so here's workaround
 inoremap jj <Esc>
-inoremap kk <Esc>
 inoremap <C-c> <Esc>
 " TAB in general mode will move to text buffer
 nnoremap <TAB> :bnext<CR>
