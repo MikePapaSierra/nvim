@@ -38,8 +38,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
 
+    " Python completion plugin
+    Plug 'davidhalter/jedi-vim'
+
     " coc
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    "Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
 
     " terraform
     Plug 'hashivim/vim-terraform'
