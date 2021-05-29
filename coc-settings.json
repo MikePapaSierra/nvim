@@ -1,7 +1,13 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "graphql", "html", "yaml",  "json"],
-
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "graphql",
+    "html",
+    "yaml",
+    "json"
+  ],
   "python.linting.enabled": true,
-  "python.linting.pylintEnabled": true
-
+  "python.linting.pylintEnabled": true,
+  "python.jediPath": "~/.local/lib/python3.8/site-packages"
 }
