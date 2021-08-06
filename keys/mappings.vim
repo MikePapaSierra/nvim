@@ -6,7 +6,9 @@ nnoremap <TAB> :bnext<CR>
 " SHIFT-TAB will go back
 nnoremap <S-TAB> :bprevious<CR>
 " Show/hide line numbers
-nnoremap <C-N><C-N> :set invnumber<CR>
+nnoremap <C-N><C-N> :set invnu<CR>
+" Toggle relative numbers
+nnoremap <C-R><C-R> :set invrnu<CR>
 " Show/hide blank characters
 noremap <F5> :set list!<CR>
 inoremap <F5> <C-o>:set list!<CR>
