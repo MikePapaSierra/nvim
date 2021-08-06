@@ -8,21 +8,26 @@ Below is example screenshot of neovim configuration:
 ## Keybindings
 
  - <kbd>j</kbd><kbd>j</kbd> - mapped to work as <kbd>Esc</kbd>
- - <kbd>k</kbd><kbd>k</kbd> - mapped to work as <kbd>Esc</kbd>
  - <kbd>Ctrl</kbd> + <kbd>c</kbd> - mapped to work as <kbd>Esc</kbd>
- - <kbd>Tab</kbd> - next buffer
- - <kbd>Shift</kbd> + <kbd>Tab</kbd> - previous buffer
  - 2x <kbd>Ctrl</kbd> + <kbd>n</kbd> - toggle line numering
+ - 2x <kbd>Ctrl</kbd> + <kbd>r</kbd> - toggle line numering between absolute and
+   hibrid
  - <kbd>F5</kbd> - toggle showing white spaces
  - <kbd>F6</kbd> - toggle between paste no-paste
  - <kbd>F7</kbd> - toggle spell checking
+ - <kbd>ss</kbd> - split window horizontally
+ - <kbd>sv</kbd> - split window vertically
+ - <kbd>sh</kbd> - move to the left window
+ - <kbd>sj</kbd> - move to the upper window
+ - <kbd>sk</kbd> - move to the lower window
+ - <kbd>sl</kbd> - move to the right window
+ - <kbd>te</kbd> - create new tab
 
 ## Plugins
 
 Here's list of all plugins used in the configuration:
 
 - [Fzf](https://github.com/junegunn/fzf.vim)
-- [Vim Tmux Navigator](https://github.com/christoomey/vim-tmux-navigator)
 - [colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua)
 - [Much simpler Rainbow Parentheses](https://github.com/junegunn/rainbow_parentheses.vim)
 - [Foreword](https://github.com/ParamagicDev/vim-medic_chalk)
