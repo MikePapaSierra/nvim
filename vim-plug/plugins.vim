@@ -13,7 +13,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'junegunn/fzf.vim'
 
     " vim tmux navigator
-    Plug 'christoomey/vim-tmux-navigator'
+    "Plug 'christoomey/vim-tmux-navigator'
+
+    " numbertoggle
+    Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
     " Add some color
     Plug 'norcalli/nvim-colorizer.lua'
