@@ -12,5 +12,10 @@ source $HOME/.config/nvim/plug-config/rainbow.vim
 source $HOME/.config/nvim/plug-config/start-screen.vim
 " Colorization
 lua require'plug-colorizer'
-" colorscheme medic_chalk
-colorscheme janah
+"Configure colorscheme to codedark
+"(https://github.com/tomasiser/vim-code-dark#readme) 
+colorscheme codedark
+let g:airline_theme = 'codedark'
+" Enable transparency
+hi Normal guibg=None ctermbg=None
+hi EndOfBuffer guibg=None ctermbg=None

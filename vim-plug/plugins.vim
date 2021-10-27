@@ -17,21 +17,31 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " numbertoggle
     Plug 'jeffkreeftmeijer/vim-numbertoggle'
+    
+    "Add airline
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 
     " Add some color
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'junegunn/rainbow_parentheses.vim'
-    Plug 'ParamagicDev/vim-medic_chalk'
-    Plug 'mhinz/vim-janah'
-
-    " lightline - statusbar
-    Plug 'itchyny/lightline.vim'
     
+    " Add some themes
+    Plug 'tomasiser/vim-code-dark'
+
     " sneak
     Plug 'justinmk/vim-sneak'
 
     " devicons
     Plug 'ryanoasis/vim-devicons'
+
+    " Telescope
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+
+    " LSP
+    Plug 'neovim/nvim-lspconfig'
 
     " startify
     Plug 'mhinz/vim-startify'
@@ -50,6 +60,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " terraform
     Plug 'hashivim/vim-terraform'
+    Plug 'vim-syntastic/syntastic'
+    Plug 'juliosueiras/vim-terraform-completion'
 
     " Spell checking
     Plug 'sedm0784/vim-you-autocorrect'
