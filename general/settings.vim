@@ -11,7 +11,6 @@ set shiftwidth=2            " Tabspacing to 2 characters for indents
 set smarttab                " Smart tabbing will realize you have 2 vs 4
 set expandtab               " Convert tabs to spaces
 set smartindent             " Enable smart indenting
-set background=dark         " Configure dark background
 set cursorline              " Enable highlighting of the cursor line
 set laststatus=2            " Always display the status line
 set clipboard=unnamed       " Set the clipboard to pbcopy
