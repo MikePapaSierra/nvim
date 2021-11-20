@@ -60,6 +60,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'mhinz/vim-signify'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
+    Plug 'kdheepak/lazygit.nvim'
 
     " Python completion plugin
     Plug 'davidhalter/jedi-vim'
