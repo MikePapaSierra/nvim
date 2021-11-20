@@ -31,3 +31,5 @@ nmap  te :tabedit
 " Moving between tabs
 nmap <S-Tab> :tabprev<Return>
 nmap <Tab> :tabnext<Return>
+" Mapping to run LazyGit
+nnoremap <silent> <leader>gg :LazyGit<CR>
