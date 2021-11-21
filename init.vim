@@ -7,6 +7,7 @@ source $HOME/.config/nvim/keys/mappings.vim
 " Plugin installation
 source $HOME/.config/nvim/vim-plug/plugins.vim
 " Plugins configuration
+source $HOME/.config/nvim/plug-config/airline.vim
 source $HOME/.config/nvim/plug-config/fzf.vim
 source $HOME/.config/nvim/plug-config/rainbow.vim
 source $HOME/.config/nvim/plug-config/start-screen.vim
