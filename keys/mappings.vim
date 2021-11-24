@@ -36,3 +36,8 @@ nnoremap <silent> <leader>gg :LazyGit<CR>
 " Mapping for Floaterm
 nnoremap  <C-t> :FloatermToggle<CR>
 tnoremap <C-t> <C-\><C-n>:FloatermToggle<CR>
+" Mapping for nnn
+tnoremap <C-A-n> <cmd>NnnExplorer<CR>
+nnoremap <C-A-n> <cmd>NnnExplorer %:p:h<CR>
+tnoremap <C-A-p> <cmd>NnnPicker<CR>
+nnoremap <C-A-p> <cmd>NnnPicker<CR>
