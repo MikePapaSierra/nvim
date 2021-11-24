@@ -25,6 +25,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " vim tmux navigator
     "Plug 'christoomey/vim-tmux-navigator'
 
+    " Nnn file manager support
+    Plug 'luukvbaal/nnn.nvim'
+
     " numbertoggle
     Plug 'jeffkreeftmeijer/vim-numbertoggle'
     
@@ -78,6 +81,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'sedm0784/vim-you-autocorrect'
 
 call plug#end()
+
+" nnn
+lua << EOF
+require("nnn").setup()
+EOF
 
 " Automatically install missing plugins on startup
 autocmd VimEnter *
