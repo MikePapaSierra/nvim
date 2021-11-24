@@ -1,10 +1,11 @@
 " My ESC key is jamming from time to time so here's workaround
 inoremap jj <Esc>
 inoremap <C-c> <Esc>
-" TAB in general mode will move to text buffer
-"nnoremap <TAB> :bnext<CR>
-" SHIFT-TAB will go back
-"nnoremap <S-TAB> :bprevious<CR>
+" Buffers
+" Navigate between buffers
+nmap bn :bnext<CR>
+nmap bp :bprevious<CR>
+" TODO: Add option to close buffer
 " Show/hide line numbers
 nnoremap <C-N><C-N> :set invnu<CR>
 " Toggle relative numbers
