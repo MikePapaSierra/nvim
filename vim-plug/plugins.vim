@@ -67,6 +67,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Python completion plugin
     Plug 'davidhalter/jedi-vim'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'zchee/deoplete-jedi'
 
     " coc
     "Plug 'neoclide/coc.nvim', {'branch': 'release'}

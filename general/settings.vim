@@ -19,3 +19,10 @@ set formatoptions-=cro      " Stop newline continution of comments
 set t_Co=256                " Support 256 colors
 set termguicolors           " Sets terminal gui colors
 set spelllang=en         " Configure spell checking " Disabling Polish spell checking due to the issue with encoding.
+"Enable deoplate
+let g:deoplete#enable_at_startup = 1
+" disable autocompletion, because we use deoplete for completion
+let g:jedi#completions_enabled = 0
+" open the go-to function in split, not another buffer
+let g:jedi#use_splits_not_buffers = "right"
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
