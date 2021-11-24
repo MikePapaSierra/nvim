@@ -36,6 +36,3 @@ nnoremap <silent> <leader>gg :LazyGit<CR>
 " Mapping for Floaterm
 nnoremap  <C-t> :FloatermToggle<CR>
 tnoremap <C-t> <C-\><C-n>:FloatermToggle<CR>
-" nnoremap  <leader>t :tab ter<CR>
-" noremap! <leader>t <Esc>:FloatermToggle<CR>i
-" tnoremap  <leader>d <C-\><C-n>:bd!<CR>
