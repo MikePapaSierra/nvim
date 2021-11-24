@@ -28,10 +28,12 @@ nmap sk <C-w>k
 nmap sj <C-w>j
 nmap sl <C-w>l
 " Tabs
-nmap  te :tabedit
-" Moving between tabs
-nmap <S-Tab> :tabprev<Return>
-nmap <Tab> :tabnext<Return>
+" Open new tab
+nmap te :tabedit
+" Navigate between tabs
+nmap tn :tabnext<Return>
+nmap tp :tabprev<Return>
+" TODO: Add option to close tab
 " Mapping to run LazyGit
 nnoremap <silent> <leader>gg :LazyGit<CR>
 " Mapping for Floaterm
