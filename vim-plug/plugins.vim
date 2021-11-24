@@ -79,6 +79,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'vim-syntastic/syntastic'
     Plug 'juliosueiras/vim-terraform-completion'
 
+    " go
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
     " Spell checking
     Plug 'sedm0784/vim-you-autocorrect'
 
