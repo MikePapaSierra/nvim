@@ -5,7 +5,7 @@ inoremap <C-c> <Esc>
 " Navigate between buffers
 nmap bn :bnext<CR>
 nmap bp :bprevious<CR>
-" TODO: Add option to close buffer
+nmap bd :bdelete<CR>
 " Show/hide line numbers
 nnoremap <C-N><C-N> :set invnu<CR>
 " Toggle relative numbers
