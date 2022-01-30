@@ -88,18 +88,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 call plug#end()
 
 " nnn
-lua << EOF
-require("nnn").setup({
-picker = {
-		cmd = "tmux new-session nnn -Pp",
-		style = { border = "rounded" },
-		session = "shared",
-	},
-	replace_netrw = "picker",
-	window_nav = "<C-l>"
-})
-EOF
-
+lua require('nnncfg') 
 " Automatically install missing plugins on startup
 autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
