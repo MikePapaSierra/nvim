@@ -24,3 +24,9 @@ let g:airline_theme = 'codedark'
 " Enable transparency
 hi Normal guibg=None ctermbg=None
 hi EndOfBuffer guibg=None ctermbg=None
+" Lsp configuration
+" TODO: Configure snippets; Add support for Go; Add support for Terraform
+set completeopt=menuone,noinsert,noselect
+let g:completetion_matching_strategy_list = [ 'exact', 'substring', 'fuzzy' ]
+lua require('lspinstaller')
+lua require('cmpconf')
