@@ -30,3 +30,16 @@ set completeopt=menuone,noinsert,noselect
 let g:completetion_matching_strategy_list = [ 'exact', 'substring', 'fuzzy' ]
 lua require('lspinstaller')
 lua require('cmpconf')
+" Vimwiki and Taskwarrior
+" TODO: Figure out why diary doesn't work and why not all keybundings works.
+let g:vimwiki_list = [{'path':'$HOME/vimwiki', 'syntax':'markdown', 'ext': '.md'}]
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown':'markdown'}
+let g:vimwiki_markdown_link_ext = 1
+let g:vimwiki_markup_syntax = 'markdown'
+let g:vimwiki_markdown_folding = 1
+let g:vimwiki_diary_months = {
+      \ 1: 'January', 2: 'February', 3: 'March',
+      \ 4: 'April', 5: 'May', 6: 'June',
+      \ 7: 'July', 8: 'August', 9: 'September',
+      \ 10: 'October', 11: 'November', 12: 'December'
+      \ }
