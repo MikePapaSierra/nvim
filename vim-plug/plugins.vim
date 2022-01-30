@@ -86,6 +86,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Spell checking
     Plug 'sedm0784/vim-you-autocorrect'
+    " Vimwiki and Taskwarrior
+    Plug 'vimwiki/vimwiki'
+    Plug 'tbabej/taskwiki'
+    Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 
