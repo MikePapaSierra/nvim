@@ -36,12 +36,16 @@ Below is example screenshot of neovim configuration:
 
 #### Fzf
 
-- <kbd>Leader</kbd>+<kbd>f</kbd> - Fuzzy find over files
-- <kbd>Leader</kbd>+<kbd>b</kbd> - Fuzzy find over buffers
-- <kbd>Leader</kbd>+<kbd>r</kbd> - Fuzzy find using ripgrep
-- <kbd>Leader</kbd>+<kbd>t</kbd> - Fuzzy find over tags
-- <kbd>Leader</kbd>+<kbd>m</kbd> - Fuzzy find over marks
-- <kbd>Leader</kbd>+<kbd>g</kbd> - Fuzzy find over commits
+- <kbd>Leader</kbd>+<kbd>f</kbd> - fuzzy find over files
+- <kbd>Leader</kbd>+<kbd>b</kbd> - fuzzy find over buffers
+- <kbd>Leader</kbd>+<kbd>r</kbd> - fuzzy find using ripgrep
+- <kbd>Leader</kbd>+<kbd>t</kbd> - fuzzy find over tags
+- <kbd>Leader</kbd>+<kbd>m</kbd> - fuzzy find over marks
+- <kbd>Leader</kbd>+<kbd>g</kbd> - fuzzy find over commits
+
+- <kbd>Ctr</kbd>+<kbd>t</kbd> - open file in new tab
+- <kbd>Ctr</kbd>+<kbd>v</kbd> - open file in verical split
+- <kbd>Ctr</kbd>+<kbd>x</kbd> - open file in horizontal split
 
 ## Plugins
 
