@@ -30,8 +30,8 @@ nmap sl <C-w>l
 " Mapping to run LazyGit
 nnoremap <silent> <leader>gg :LazyGit<CR>
 " Mapping for Floaterm
-nnoremap  <C-t> :FloatermToggle<CR>
-tnoremap <C-t> <C-\><C-n>:FloatermToggle<CR>
+nnoremap  <C-A-t> :FloatermToggle<CR>
+tnoremap <C-A-t> <C-\><C-n>:FloatermToggle<CR>
 " Mapping for nnn
 tnoremap <C-A-n> <cmd>NnnPicker<CR>
 nnoremap <C-A-n> <cmd>NnnPicker<CR>

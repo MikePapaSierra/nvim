@@ -27,7 +27,7 @@ Below is example screenshot of neovim configuration:
 
 #### Floaterm
 
-- <kbd>Leader</kbd> + <kbd>t</kbd> - Toggle floating terminal (if not opne it
+- <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>t</kbd> - toggle floating terminal (if not opne it
   will create new instance of the terminal)
 - <kbd>Ctrl</kbd>+<kbd>\</kbd><kbd>Ctrl</kbd>+<kbd>n</kbd> - enable
   navigation/normal mode in floating terminal
