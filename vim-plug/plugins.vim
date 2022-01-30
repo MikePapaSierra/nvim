@@ -32,9 +32,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Floaterm
     Plug 'voldikss/vim-floaterm'
 
-    " vim tmux navigator
-    "Plug 'christoomey/vim-tmux-navigator'
-
     " Nnn file manager support
     Plug 'luukvbaal/nnn.nvim'
 
@@ -53,7 +50,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tomasiser/vim-code-dark'
 
     " sneak
-    Plug 'justinmk/vim-sneak'
+    "Plug 'justinmk/vim-sneak'
 
     " devicons
     Plug 'ryanoasis/vim-devicons'
@@ -62,30 +59,31 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'mhinz/vim-startify'
     
     " Git related plugins
-    Plug 'mhinz/vim-signify'
-    Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-rhubarb'
+    "Plug 'mhinz/vim-signify'
+    "Plug 'tpope/vim-fugitive'
+    "Plug 'tpope/vim-rhubarb'
     Plug 'kdheepak/lazygit.nvim'
 
     " Python completion plugin
-    Plug 'davidhalter/jedi-vim'
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'zchee/deoplete-jedi'
+    "Plug 'davidhalter/jedi-vim'
+    "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    "Plug 'zchee/deoplete-jedi'
 
     " coc
     "Plug 'neoclide/coc.nvim', {'branch': 'release'}
     "Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
 
     " terraform
-    Plug 'hashivim/vim-terraform'
-    Plug 'vim-syntastic/syntastic'
-    Plug 'juliosueiras/vim-terraform-completion'
+    "Plug 'hashivim/vim-terraform'
+    "Plug 'vim-syntastic/syntastic'
+    "Plug 'juliosueiras/vim-terraform-completion'
 
     " go
-    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+    "Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
     " Spell checking
-    Plug 'sedm0784/vim-you-autocorrect'
+    "Plug 'sedm0784/vim-you-autocorrect'
+
     " Vimwiki and Taskwarrior
     Plug 'vimwiki/vimwiki'
     Plug 'tbabej/taskwiki'
