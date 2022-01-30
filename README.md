@@ -23,6 +23,17 @@ Below is example screenshot of neovim configuration:
  - <kbd>sl</kbd> - move to the right window
  - <kbd>te</kbd> - create new tab
 
+### Plugin key bindings
+
+#### Floaterm
+
+- <kbd>Leader</kbd> + <kbd>t</kbd> - Toggle floating terminal (if not opne it
+  will create new instance of the terminal)
+- <kbd>Ctrl</kbd>+<kbd>\</kbd><kbd>Ctrl</kbd>+<kbd>n</kbd> - enable
+  navigation/normal mode in floating terminal
+- <kbd>Ctrl</kbd>+<kbd>u</kbd> - move up in the normal mode
+- <kbd>Ctrl</kbd>+<kbd>d</kbd> - move down in the normal mode
+
 ## Plugins
 
 Here's list of all plugins used in the configuration:
