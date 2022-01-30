@@ -34,6 +34,15 @@ Below is example screenshot of neovim configuration:
 - <kbd>Ctrl</kbd>+<kbd>u</kbd> - move up in the normal mode
 - <kbd>Ctrl</kbd>+<kbd>d</kbd> - move down in the normal mode
 
+#### Fzf
+
+- <kbd>Leader</kbd>+<kbd>f</kbd> - Fuzzy find over files
+- <kbd>Leader</kbd>+<kbd>b</kbd> - Fuzzy find over buffers
+- <kbd>Leader</kbd>+<kbd>r</kbd> - Fuzzy find using ripgrep
+- <kbd>Leader</kbd>+<kbd>t</kbd> - Fuzzy find over tags
+- <kbd>Leader</kbd>+<kbd>m</kbd> - Fuzzy find over marks
+- <kbd>Leader</kbd>+<kbd>g</kbd> - Fuzzy find over commits
+
 ## Plugins
 
 Here's list of all plugins used in the configuration:
