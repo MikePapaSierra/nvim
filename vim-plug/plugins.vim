@@ -12,6 +12,15 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
 
+    " LSP
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'williamboman/nvim-lsp-installer'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'hrsh7th/cmp-cmdline'
+    Plug 'hrsh7th/nvim-cmp'
+
     " Telescope
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
@@ -52,9 +61,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
-
-    " LSP
-    Plug 'neovim/nvim-lspconfig'
 
     " startify
     Plug 'mhinz/vim-startify'
