@@ -19,9 +19,6 @@ nnoremap <F6> :set invpaste paste?<CR>
 " Enable spell checking
 nnoremap <F7> :set spell! <CR>
 inoremap <F7> <C-o> :set spell! <CR>
-" Split window
-nmap ss :split<Return><C-w>w
-nmap sv :split<Return><C-w>w
 " Moving between windows
 nmap sh <C-w>h
 nmap sk <C-w>k
