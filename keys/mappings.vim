@@ -17,8 +17,8 @@ cnoremap <F5> <C-c>:set list!<CR>
 " Toggle no-paste
 nnoremap <F6> :set invpaste paste?<CR>
 " Enable spell checking
-nnoremap <F7> :set spell! <CR>
-inoremap <F7> <C-o> :set spell! <CR>
+"nnoremap <F7> :set spell! <CR>
+"inoremap <F7> <C-o> :set spell! <CR>
 " Moving between windows
 nmap sh <C-w>h
 nmap sk <C-w>k
@@ -47,16 +47,16 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 " Deoplate
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " Common Go commands
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage-toggle)
-au FileType go nmap <Leader>e <Plug>(go-rename)
-au FileType go nmap <Leader>s <Plug>(go-implements)
-au FileType go nmap <Leader>i <Plug>(go-info)
+"au FileType go nmap <leader>r <Plug>(go-run)
+"au FileType go nmap <leader>b <Plug>(go-build)
+"au FileType go nmap <leader>t <Plug>(go-test)
+"au FileType go nmap <leader>c <Plug>(go-coverage-toggle)
+"au FileType go nmap <Leader>e <Plug>(go-rename)
+"au FileType go nmap <Leader>s <Plug>(go-implements)
+"au FileType go nmap <Leader>i <Plug>(go-info)
 " Go navigation commands
-au FileType go nmap <Leader>ds <Plug>(go-def-split)
-au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+"au FileType go nmap <Leader>ds <Plug>(go-def-split)
+"au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 " Alternate commands
-au FileType go nmap <Leader>ae <Plug>(go-alternate-edit)
-au FileType go nmap <Leader>av <Plug>(go-alternate-vertical)
+"au FileType go nmap <Leader>ae <Plug>(go-alternate-edit)
+"au FileType go nmap <Leader>av <Plug>(go-alternate-vertical)
