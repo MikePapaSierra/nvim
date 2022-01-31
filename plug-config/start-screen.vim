@@ -8,9 +8,9 @@ let g:startify_lists = [
           \ ]
 
 let g:startify_bookmarks = [
-          \ { 'w': '~/.config/i3/config' },
-          \ { 'i': '~/.config/nvim/init.vim' },
-          \ { 'p': '~/.config/polybar/config' },
+          \ { 'v': '~/.config/nvim/init.vim' },
           \ { 'f': '~/.config/fish/config.fish' },
-          \ { 'r': '~/.Xresources' },
           \ ]
+
+let g:startify_fortune_use_unicode = 1
+nmap <c-n> :Startify<cr>
