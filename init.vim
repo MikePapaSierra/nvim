@@ -17,8 +17,8 @@ set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 " Colorization
 lua require'plug-colorizer'
-"Configure colorscheme to codedark
-"(https://github.com/tomasiser/vim-code-dark#readme) 
+" Configure colorscheme to codedark
+" (https://github.com/tomasiser/vim-code-dark#readme) 
 colorscheme codedark
 let g:airline_theme = 'codedark'
 " Enable transparency
