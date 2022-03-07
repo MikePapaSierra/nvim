@@ -17,10 +17,8 @@ set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 " Colorization
 lua require'plug-colorizer'
-" Configure colorscheme to codedark
-" (https://github.com/tomasiser/vim-code-dark#readme) 
-colorscheme codedark
-let g:airline_theme = 'codedark'
+" Configure Dracula theme
+packadd! dracula_pro
 " Enable transparency
 hi Normal guibg=None ctermbg=None
 hi EndOfBuffer guibg=None ctermbg=None
