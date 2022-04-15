@@ -2,7 +2,7 @@ map <Space> <Leader>
 set iskeyword+=-            " Treat dash separated words as a word text object
 
 syntax enable               " Enable syntax hightlighting
-set hidden                  " Required to keep multiple buffers open multiple buffers
+"set hidden                  " Required to keep multiple buffers open
 set nowrap                  " Do not wrap lines - display long lines as a single line
 set encoding=utf-8          " Encoding displayed
 set pumheight=10            " Makes popup menu smaller
