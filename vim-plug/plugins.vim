@@ -38,8 +38,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Floaterm
     Plug 'voldikss/vim-floaterm'
 
-    " Nnn file manager support
-    Plug 'luukvbaal/nnn.nvim'
+    " NerdTree plugin
+    Plug 'scrooloose/nerdtree'
 
     " numbertoggle
     Plug 'jeffkreeftmeijer/vim-numbertoggle'
