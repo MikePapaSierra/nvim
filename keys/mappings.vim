@@ -29,9 +29,8 @@ nnoremap <silent> <leader>gg :LazyGit<CR>
 " Mapping for Floaterm
 nnoremap  <C-A-t> :FloatermToggle<CR>
 tnoremap <C-A-t> <C-\><C-n>:FloatermToggle<CR>
-" Mapping for nnn
-tnoremap <C-A-n> <cmd>NnnPicker<CR>
-nnoremap <C-A-n> <cmd>NnnPicker<CR>
+" Mapping for NerdTree
+nnoremap <silent> <C-A-n> :NERDTreeToggle<CR>
 " Telescope
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
