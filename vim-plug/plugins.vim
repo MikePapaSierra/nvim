@@ -91,8 +91,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 call plug#end()
 
-" nnn
-lua require('nnncfg') 
 " Automatically install missing plugins on startup
 autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
