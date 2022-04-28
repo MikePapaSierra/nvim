@@ -17,7 +17,7 @@ set lcs+=space:.            " Set the blank character to '.'
 set formatoptions-=cro      " Stop newline continution of comments
 set t_Co=256                " Support 256 colors
 set termguicolors           " Sets terminal gui colors
-set spelllang=en         " Configure spell checking " Disabling Polish spell checking due to the issue with encoding.
+set spelllang=en            " Configure spell checking " Disabling Polish spell checking due to the issue with encoding.
 "Enable deoplate
 let g:deoplete#enable_at_startup = 1
 " This is probably depreciated
