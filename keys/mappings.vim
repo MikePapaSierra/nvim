@@ -1,6 +1,5 @@
 " My ESC key is jamming from time to time so here's workaround
 inoremap jj <Esc>
-inoremap <C-c> <Esc>
 " Buffers
 " Navigate between buffers
 nmap bn :bnext<CR>
