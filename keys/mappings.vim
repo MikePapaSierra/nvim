@@ -44,6 +44,46 @@ nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 " Deoplate
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" Barbar configuration
+" Move to previous/next
+nnoremap <A-,> :BufferPrevious<CR>
+nnoremap <A-.> :BufferNext<CR>
+" Re-order to previous/next
+nnoremap <A-<> :BufferMovePrevious<CR>
+nnoremap <A->> :BufferMoveNext<CR>
+" Goto buffer in position...
+nnoremap <A-1> :BufferGoto 1<CR>
+nnoremap <A-2> :BufferGoto 2<CR>
+nnoremap <A-3> :BufferGoto 3<CR>
+nnoremap <A-4> :BufferGoto 4<CR>
+nnoremap <A-5> :BufferGoto 5<CR>
+nnoremap <A-6> :BufferGoto 6<CR>
+nnoremap <A-7> :BufferGoto 7<CR>
+nnoremap <A-8> :BufferGoto 8<CR>
+nnoremap <A-9> :BufferLast<CR>
+" Pin/unpin buffer
+nnoremap <A-p> :BufferPin<CR>
+" Close buffer
+nnoremap <A-c> :BufferClose<CR>
+" Wipeout buffer
+"                          :BufferWipeout<CR>
+" Close commands
+"                          :BufferCloseAllButCurrent<CR>
+"                          :BufferCloseAllButPinned<CR>
+"                          :BufferCloseBuffersLeft<CR>
+"                          :BufferCloseBuffersRight<CR>
+" Magic buffer-picking mode
+nnoremap <C-s>    :BufferPick<CR>
+" Sort automatically by...
+nnoremap <silent> <leader>bb :BufferOrderByBufferNumber<CR>
+nnoremap <silent> <leader>bd :BufferOrderByDirectory<CR>
+nnoremap <silent> <leader>bl :BufferOrderByLanguage<CR>
+nnoremap <silent> <leader>bw :BufferOrderByWindowNumber<CR>
+
+" Other:
+" :BarbarEnable - enables barbar (enabled by default)
+" :BarbarDisable - very bad command, should never be used
+" End BarBar configuration
 " Common Go commands
 "au FileType go nmap <leader>r <Plug>(go-run)
 "au FileType go nmap <leader>b <Plug>(go-build)
