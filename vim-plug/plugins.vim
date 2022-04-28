@@ -52,8 +52,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'junegunn/rainbow_parentheses.vim'
     
-    " Add some themes
-    Plug 'tomasiser/vim-code-dark'
 
     " sneak
     "Plug 'justinmk/vim-sneak'
