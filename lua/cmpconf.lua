@@ -118,9 +118,14 @@ cmp.setup {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
-  documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-  },
+  -- Alternate configuration for documentation (https://github.com/hrsh7th/nvim-cmp/issues/936)
+  --window = {
+  --  documentation = cmp.config.window.bordered(),
+  --},
+  -- This should be disabled to maintain compatibility (https://github.com/LunarVim/Neovim-from-scratch/issues/114)
+  -- documentation = {
+  --   border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  -- },
   experimental = {
     ghost_text = false,
     native_menu = false,
