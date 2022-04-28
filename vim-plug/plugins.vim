@@ -52,12 +52,15 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'junegunn/rainbow_parentheses.vim'
     
+    " Add support for tabs
+    Plug 'romgrk/barbar.nvim'
 
     " sneak
     "Plug 'justinmk/vim-sneak'
 
     " devicons
     Plug 'ryanoasis/vim-devicons'
+    Plug 'kyazdani42/nvim-web-devicons'
 
     " Git related plugins
     "Plug 'mhinz/vim-signify'
