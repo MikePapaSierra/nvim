@@ -59,9 +59,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " devicons
     Plug 'ryanoasis/vim-devicons'
 
-    " startify
-    Plug 'mhinz/vim-startify'
-    
     " Git related plugins
     "Plug 'mhinz/vim-signify'
     "Plug 'tpope/vim-rhubarb'
