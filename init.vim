@@ -13,8 +13,6 @@ source $HOME/.config/nvim/plug-config/rainbow.vim
 source $HOME/.config/nvim/plug-config/start-screen.vim
 " Treesiter configuration
 lua require('treesitterconf')
-"set foldmethod=expr
-"set foldexpr=nvim_treesitter#foldexpr()
 " Colorization
 lua require'plug-colorizer'
 " Configure Dracula theme
