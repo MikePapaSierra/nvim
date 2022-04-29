@@ -41,6 +41,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " NerdTree plugin
     Plug 'scrooloose/nerdtree'
 
+    " Commentary
+    Plug 'shoukoo/commentary.nvim'
+
     " numbertoggle
     Plug 'jeffkreeftmeijer/vim-numbertoggle'
     
@@ -54,6 +57,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     
     " Add support for tabs
     Plug 'romgrk/barbar.nvim'
+
+    " SplitJoin plugin
+    Plug 'AndrewRadev/splitjoin.vim'
 
     " sneak
     "Plug 'justinmk/vim-sneak'
