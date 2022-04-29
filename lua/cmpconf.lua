@@ -47,11 +47,26 @@ local kind_icons = {
   TypeParameter = "",
 }
 
+-- Define diagnostic signs
+local signs = {
+    { name = "DiagnosticSignError", text = "" },
+    { name = "DiagnosticSignWarn", text = "" },
+    { name = "DiagnosticSignHint", text = "" },
+    { name = "DiagnosticSignInfo", text = "" },
+}
+
+for _, sign in ipairs(signs) do
+    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+end
+
 cmp.setup {
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
     end,
+  },
+  signs = {
+      active = signs,
   },
   mapping = {
     ["<C-k>"] = cmp.mapping.select_prev_item(),
