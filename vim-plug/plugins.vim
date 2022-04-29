@@ -69,7 +69,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'kyazdani42/nvim-web-devicons'
 
     " Git related plugins
-    "Plug 'mhinz/vim-signify'
+    Plug 'mhinz/vim-signify'
     "Plug 'tpope/vim-rhubarb'
     Plug 'kdheepak/lazygit.nvim'
 
