@@ -14,8 +14,8 @@ telescope.setup({
       i = {
         -- Below shortcuts arent working on MacOS
         -- Check that they will be available on Linux
-        ["<C-k>"] = actions.move_selection_previous,
-        ["<C-j>"] = actions.move_selection_next,
+        ["<C-p>"] = actions.move_selection_previous,
+        ["<C-n>"] = actions.move_selection_next,
         ["<C-q>"] = actions.send_slected_to_qflist + actions.open_qflist,
       }
     }
