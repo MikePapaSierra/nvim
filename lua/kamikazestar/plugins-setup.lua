@@ -50,6 +50,17 @@ return require('packer').startup(function(use)
   use("saadparwaiz1/cmp_luasnip")
   use("rafamadriz/friendly-snippets")
 
+  -- Managing and instaling LSP servers
+  use("williamboman/mason.nvim")
+  use("williamboman/mason-lspconfig.nvim")
+
+  -- Configuring LSP servers
+  use("neovim/nvim-lspconfig")
+  use("hrsh7th/cmp-nvim-lsp")
+  use({ "glepnir/lspsaga.nvim", branch = "main" })
+	use("jose-elias-alvarez/typescript.nvim")
+	use("onsails/lspkind.nvim")
+  
   -- Essential plugins
   -- use 'tpope/vim-surround'
   -- use 'vim-scripts/ReplaceWithRegister'
