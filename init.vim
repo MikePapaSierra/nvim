@@ -1,3 +1,10 @@
+" TODO: Reviev this video for new plugins:
+" https://www.youtube.com/watch?v=vdn_pKJUda8
+" Code is available here: https://github.com/josean-dev/dev-environment-files/tree/main/.config/nvim
+"
+" TODO: Figure out how to open things in floating windows like in this case: https://www.youtube.com/watch?v=_1ijgc7G3pg
+" Repo: https://github.com/kidp2h               
+"
 " General configuration
 source $HOME/.config/nvim/general/settings.vim
 " Filetype configuration
