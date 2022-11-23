@@ -18,7 +18,6 @@ mason_lspconfig.setup({
     "dockerls",
     "gopls",
     "terraformls",
-    "tsserver",
     "jsonls",
     "arduino_language_server",
     "yamlls",

@@ -8,16 +8,12 @@ if not cmp_nvim_lsp_staus then
   return
 end
 
-local typescript_setup, typescript = pcall(require, "typestript")
-if not typescript_setup then
-  return
-end
-
 local keymap = vim.keymap
 
 -- enable keybindings for available lsp servers
 local on_attach = function(client, bufnr)
--- keybind options
+
+  -- keybind options
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 
 	-- set keybinds
@@ -34,12 +30,6 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
 	keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts) -- see outline on right hand side
 
-	-- typescript specific keymaps (e.g. rename file and update imports)
-	if client.name == "tsserver" then
-		keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
-		keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
-		keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
-	end
 end
 
 -- used to enable autocompletion (assign to every lsp server config)
@@ -53,13 +43,12 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
--- configure typescript server with plugin
-typescript.setup({
-	server = {
-		capabilities = capabilities,
-		on_attach = on_attach,
-	},
-})
+
+-- TODO: Add proper configuration for languages:
+-- Bashls, Terraformls, Gopls, Ansilbe, Json, Yaml, Python
+
+-- configure gopls language server
+lspconfig["gopls"].setup({})
 
 -- configure lua server (with special settings)
 lspconfig["sumneko_lua"].setup({
