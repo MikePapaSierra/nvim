@@ -19,6 +19,7 @@ set t_Co=256                " Support 256 colors
 set termguicolors           " Sets terminal gui colors
 set spelllang=en            " Configure spell checking " Disabling Polish spell checking due to the issue with encoding.
 set mouse+=a                " Enable mouse for barbar plugin
+set nofoldenable            " Disable folding
 "Enable deoplate
 let g:deoplete#enable_at_startup = 1
 " This is probably depreciated
