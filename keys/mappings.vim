@@ -1,5 +1,5 @@
 " My ESC key is jamming from time to time so here's workaround
-inoremap jj <Esc>
+inoremap qq <Esc>
 " Buffers
 " Navigate between buffers
 nmap bn :bnext<CR>
@@ -84,6 +84,17 @@ nnoremap <silent> <leader>bw :BufferOrderByWindowNumber<CR>
 " :BarbarEnable - enables barbar (enabled by default)
 " :BarbarDisable - very bad command, should never be used
 " End BarBar configuration
+" VimWiki
+" Default keybindings for diary (<leader>w<leader>w) wasn't working
+" Open diary index
+nmap <leader>di <Plug>VimwikiDiaryIndex
+" Open today diar
+nmap <leader>dn <Plug>VimwikiMakeDiaryNote
+nmap <leader>db <Plug>VimwikiTabMakeDiaryNote
+" Open tomorrow diary
+nmap <leader>dt <Plug>VimwikiMakeTomorrowDiaryNote
+" Opent yesterday diary
+nmap <leader>dy <Plug>VimwikiMakeYesterdayDiaryNote
 " Common Go commands
 "au FileType go nmap <leader>r <Plug>(go-run)
 "au FileType go nmap <leader>b <Plug>(go-build)
