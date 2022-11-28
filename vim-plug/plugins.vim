@@ -32,7 +32,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
     Plug 'kyazdani42/nvim-web-devicons'
 
     " Floaterm
@@ -95,7 +95,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Vimwiki and Taskwarrior
     Plug 'vimwiki/vimwiki'
-    Plug 'tbabej/taskwiki'
     Plug 'plasticboy/vim-markdown'
 
 call plug#end()
