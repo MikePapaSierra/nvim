@@ -20,11 +20,13 @@ source $HOME/.config/nvim/plug-config/rainbow.vim
 source $HOME/.config/nvim/plug-config/barbar.vim
 source $HOME/.config/nvim/plug-config/markdown-preview.vim
 " Treesiter configuration
-lua require('treesitterconf')
+lua require('treesitter')
+" CMP configuration
+lua require('nvim-cmp')
 " Nvimtree configuration
 lua require('tree')
 " Colorization
-lua require'plug-colorizer'
+lua require('plug-colorizer')
 " Configure Dracula theme
 packadd! dracula_pro
 " Enable transparency
@@ -35,7 +37,7 @@ hi EndOfBuffer guibg=None ctermbg=None
 set completeopt=menuone,noinsert,noselect
 let g:completetion_matching_strategy_list = [ 'exact', 'substring', 'fuzzy' ]
 lua require('lspinstaller')
-lua require('cmpconf')
+"lua require('cmpconf')
 " Vimwiki configurationr
 " TODO: Figure out why diary doesn't work and why not all keybundings works.
 let g:vimwiki_list = [{'path':'$HOME/vimwiki', 'syntax':'markdown', 'ext': '.md', 'auto_diary_index': 1, 'diary_rel_path': './battlelog', 'diary_index': 'battlelog', 'diary_header': 'Battlelog'}]

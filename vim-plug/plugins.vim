@@ -22,6 +22,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'hrsh7th/cmp-cmdline'
     Plug 'hrsh7th/nvim-cmp'
     Plug 'saadparwaiz1/cmp_luasnip'
+    Plug 'onsails/lspkind-nvim'
 
     " Snippets
     Plug 'SirVer/ultisnips'
@@ -78,9 +79,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Python completion plugin
     "Plug 'davidhalter/jedi-vim'
-    "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    "Plug 'zchee/deoplete-jedi'
-
+    
     " coc
     "Plug 'neoclide/coc.nvim', {'branch': 'release'}
     "Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
@@ -95,8 +94,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Spell checking
     "Plug 'sedm0784/vim-you-autocorrect'
+    
+    " markdown-preview
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+    "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
-    " Vimwiki and Taskwarrior
+    " Vimwiki
     Plug 'vimwiki/vimwiki'
     Plug 'plasticboy/vim-markdown'
 
