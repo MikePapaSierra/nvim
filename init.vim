@@ -20,6 +20,8 @@ source $HOME/.config/nvim/plug-config/rainbow.vim
 source $HOME/.config/nvim/plug-config/barbar.vim
 " Treesiter configuration
 lua require('treesitterconf')
+" Nvimtree configuration
+lua require('tree')
 " Colorization
 lua require'plug-colorizer'
 " Configure Dracula theme
