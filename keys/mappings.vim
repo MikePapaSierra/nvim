@@ -71,6 +71,7 @@ nnoremap <silent> <leader>bd :BufferOrderByDirectory<CR>
 nnoremap <silent> <leader>bl :BufferOrderByLanguage<CR>
 nnoremap <silent> <leader>bw :BufferOrderByWindowNumber<CR>
 " End BarBar configuration
+
 " VimWiki
 " Default keybindings for diary (<leader>w<leader>w) wasn't working
 " Open diary index
@@ -96,3 +97,6 @@ nmap <leader>dy <Plug>VimwikiMakeYesterdayDiaryNote
 " Alternate commands
 "au FileType go nmap <Leader>ae <Plug>(go-alternate-edit)
 "au FileType go nmap <Leader>av <Plug>(go-alternate-vertical)
+
+" markdown-preview
+nmap <C-m> <Plug>MarkdownPreviewToggle
