@@ -20,8 +20,13 @@ set termguicolors           " Sets terminal gui colors
 set spelllang=en            " Configure spell checking " Disabling Polish spell checking due to the issue with encoding.
 set mouse+=a                " Enable mouse for barbar plugin
 set nofoldenable            " Disable folding
+
 "Popup window for Go Doc
 let g:go_doc_popup_window = 1
 "Dracula theme
 let g:dracula_colorterm=0
 colorscheme dracula_pro
+" Utilsnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
