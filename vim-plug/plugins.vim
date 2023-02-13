@@ -38,8 +38,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Floaterm
     Plug 'voldikss/vim-floaterm'
 
-    " NerdTree plugin
-    Plug 'scrooloose/nerdtree'
+    " nvim-tree plugin
+    Plug 'nvim-tree/nvim-tree.lua'
 
     " Commentary
     Plug 'shoukoo/commentary.nvim'

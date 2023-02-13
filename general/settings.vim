@@ -25,6 +25,3 @@ let g:go_doc_popup_window = 1
 "Dracula theme
 let g:dracula_colorterm=0
 colorscheme dracula_pro
-" NerdTree config
-" Show hiden files in NERDTree
-let NERDTreeShowHidden = 1
