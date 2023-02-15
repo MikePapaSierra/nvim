@@ -45,21 +45,21 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " Barbar configuration
 " Move to previous/next
-nnoremap <A-,> :BufferPrevious<CR>
-nnoremap <A-.> :BufferNext<CR>
+nnoremap <C-,> :BufferPrevious<CR>
+nnoremap <C-.> :BufferNext<CR>
 " Re-order to previous/next
 nnoremap <C-A-,> :BufferMovePrevious<CR>
 nnoremap <C-A-.> :BufferMoveNext<CR>
 " Goto buffer in position...
-nnoremap <A-1> :BufferGoto 1<CR>
-nnoremap <A-2> :BufferGoto 2<CR>
-nnoremap <A-3> :BufferGoto 3<CR>
-nnoremap <A-4> :BufferGoto 4<CR>
-nnoremap <A-5> :BufferGoto 5<CR>
-nnoremap <A-6> :BufferGoto 6<CR>
-nnoremap <A-7> :BufferGoto 7<CR>
-nnoremap <A-8> :BufferGoto 8<CR>
-nnoremap <A-9> :BufferLast<CR>
+nnoremap <C-1> :BufferGoto 1<CR>
+nnoremap <C-2> :BufferGoto 2<CR>
+nnoremap <C-3> :BufferGoto 3<CR>
+nnoremap <C-4> :BufferGoto 4<CR>
+nnoremap <C-5> :BufferGoto 5<CR>
+nnoremap <C-6> :BufferGoto 6<CR>
+nnoremap <C-7> :BufferGoto 7<CR>
+nnoremap <C-8> :BufferGoto 8<CR>
+nnoremap <C-9> :BufferLast<CR>
 " Pin/unpin buffer
 nnoremap <A-p> :BufferPin<CR>
 " Close buffer
