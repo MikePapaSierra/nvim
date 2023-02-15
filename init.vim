@@ -37,9 +37,7 @@ hi EndOfBuffer guibg=None ctermbg=None
 set completeopt=menuone,noinsert,noselect
 let g:completetion_matching_strategy_list = [ 'exact', 'substring', 'fuzzy' ]
 lua require('lspinstaller')
-"lua require('cmpconf')
 " Vimwiki configurationr
-" TODO: Figure out why diary doesn't work and why not all keybundings works.
 let g:vimwiki_list = [{'path':'$HOME/vimwiki', 'syntax':'markdown', 'ext': '.md', 'auto_diary_index': 1, 'diary_rel_path': './battlelog', 'diary_index': 'battlelog', 'diary_header': 'Battlelog'}]
 autocmd FileType vimwiki set ft=markdown
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown':'markdown'}
