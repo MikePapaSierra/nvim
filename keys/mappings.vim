@@ -13,7 +13,7 @@ nnoremap <C-R><C-R> :set invrnu<CR>
 nmap <F2> :set invlist<CR>
 imap <F2> <ESC>:set invlist<CR>
 " Toggle no-paste
-nnoremap <F6> :set invpaste paste?<CR>
+nnoremap <F8> :set invpaste paste?<CR>
 " Enable spell checking
 "nnoremap <F7> :set spell! <CR>
 "inoremap <F7> <C-o> :set spell! <CR>
