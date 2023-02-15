@@ -23,8 +23,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'SirVer/ultisnips'
     Plug 'quangnguyen30192/cmp-nvim-ultisnips'
     Plug 'honza/vim-snippets'
-    "Plug 'L3MON4D3/LuaSnip'
-    "Plug 'rafamadriz/friendly-snippets'
 
     " Telescope
     Plug 'nvim-lua/plenary.nvim'
@@ -32,16 +30,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
     Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-    Plug 'kyazdani42/nvim-web-devicons'
 
     " Floaterm
     Plug 'voldikss/vim-floaterm'
 
     " nvim-tree plugin
     Plug 'nvim-tree/nvim-tree.lua'
-
-    " Commentary
-    Plug 'shoukoo/commentary.nvim'
 
     " numbertoggle
     Plug 'jeffkreeftmeijer/vim-numbertoggle'
@@ -69,15 +63,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Git related plugins
     Plug 'mhinz/vim-signify'
-    "Plug 'tpope/vim-rhubarb'
     Plug 'kdheepak/lazygit.nvim'
-
-    " Python completion plugin
-    "Plug 'davidhalter/jedi-vim'
-    
-    " coc
-    "Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    "Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
 
     " terraform
     "Plug 'hashivim/vim-terraform'
@@ -92,7 +78,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     
     " markdown-preview
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-    "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
     " Vimwiki
     Plug 'vimwiki/vimwiki'
