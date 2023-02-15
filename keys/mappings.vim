@@ -10,9 +10,8 @@ nnoremap <C-N><C-N> :set invnu<CR>
 " Toggle relative numbers
 nnoremap <C-R><C-R> :set invrnu<CR>
 " Show/hide blank characters
-noremap <F5> :set list!<CR>
-inoremap <F5> <C-o>:set list!<CR>
-cnoremap <F5> <C-c>:set list!<CR>
+nmap <F2> :set invlist<CR>
+imap <F2> <ESC>:set invlist<CR>
 " Toggle no-paste
 nnoremap <F6> :set invpaste paste?<CR>
 " Enable spell checking
