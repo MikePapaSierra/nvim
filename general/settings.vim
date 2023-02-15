@@ -21,6 +21,9 @@ set spelllang=en            " Configure spell checking " Disabling Polish spell 
 set mouse+=a                " Enable mouse for barbar plugin
 set nofoldenable            " Disable folding
 
+" Store all .swp files in one directory
+set directory^=$HOME/.vim/swap//
+
 "Popup window for Go Doc
 let g:go_doc_popup_window = 1
 "Dracula theme
