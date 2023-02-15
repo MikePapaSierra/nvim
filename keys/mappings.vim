@@ -32,9 +32,11 @@ nnoremap <silent> <C-A-n> :NvimTreeToggle<CR>
 " Telescope
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fr <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fg <cmd>Telescope git_commits<cr>
+nnoremap <leader>fgb <cmd>Telescope git_branches<cr>
 " Barbar configuration
 " Move to previous/next
 nnoremap <C-,> :BufferPrevious<CR>
