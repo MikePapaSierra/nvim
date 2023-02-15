@@ -24,11 +24,19 @@ set nofoldenable            " Disable folding
 " Store all .swp files in one directory
 set directory^=$HOME/.vim/swap//
 
+" Disable arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
 "Popup window for Go Doc
 let g:go_doc_popup_window = 1
+
 "Dracula theme
 let g:dracula_colorterm=0
 colorscheme dracula_pro
+
 " Utilsnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
