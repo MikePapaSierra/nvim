@@ -37,8 +37,8 @@ hi EndOfBuffer guibg=None ctermbg=None
 set completeopt=menuone,noinsert,noselect
 let g:completetion_matching_strategy_list = [ 'exact', 'substring', 'fuzzy' ]
 lua require('lspinstaller')
-" Vimwiki configurationr
-let g:vimwiki_list = [{'path':'$HOME/vimwiki', 'syntax':'markdown', 'ext': '.md', 'auto_diary_index': 1, 'diary_rel_path': './battlelog', 'diary_index': 'battlelog', 'diary_header': 'Battlelog'}]
+" Vimwiki configuration
+let g:vimwiki_list = [{'path':'$HOME/vimwiki', 'syntax':'markdown', 'ext': '.md', 'auto_diary_index': 1, 'diary_rel_path': 'diary', 'diary_index': 'diary', 'diary_header': 'Diary'}]
 autocmd FileType vimwiki set ft=markdown
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown':'markdown'}
 let g:vimwiki_listsyms = '✗○◐●✓'
