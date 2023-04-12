@@ -3,6 +3,7 @@ set iskeyword+=-            " Treat dash separated words as a word text object
 
 syntax enable               " Enable syntax hightlighting
 set nowrap                  " Do not wrap lines - display long lines as a single line
+set textwidth=0             " Disable text line width
 set encoding=utf-8          " Encoding displayed
 set pumheight=10            " Makes popup menu smaller
 set fileencoding=utf-8      " Encoding writtent to a file
