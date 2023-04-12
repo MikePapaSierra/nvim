@@ -65,6 +65,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'mhinz/vim-signify'
     Plug 'kdheepak/lazygit.nvim'
 
+    " Github Copilot
+    Plug 'github/copilot.vim'
+
     " terraform
     "Plug 'hashivim/vim-terraform'
     "Plug 'vim-syntastic/syntastic'
