@@ -6,7 +6,10 @@ set nowrap                  " Do not wrap lines - display long lines as a single
 set encoding=utf-8          " Encoding displayed
 set pumheight=10            " Makes popup menu smaller
 set fileencoding=utf-8      " Encoding writtent to a file
-set shiftwidth=2            " Tabspacing to 2 characters for indents
+set shiftwidth=4            " Tabspacing to 4 characters for indents
+set tabstop=4
+set softtabstop=4
+set guicursor=
 set smarttab                " Smart tabbing will realize you have 2 vs 4
 set expandtab               " Convert tabs to spaces
 set smartindent             " Enable smart indenting
@@ -20,6 +23,9 @@ set termguicolors           " Sets terminal gui colors
 set spelllang=en            " Configure spell checking " Disabling Polish spell checking due to the issue with encoding.
 set mouse+=a                " Enable mouse for barbar plugin
 set nofoldenable            " Disable folding
+set scrolloff=8             " Scroll when you 8 lines away from the center of the text
+set number                  " Show line numbers
+set relativenumber          " Show relative line numbers
 
 " Store all .swp files in one directory
 set directory^=$HOME/.vim/swap//

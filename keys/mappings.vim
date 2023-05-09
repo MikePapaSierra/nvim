@@ -1,14 +1,8 @@
-" My ESC key is jamming from time to time so here's workaround
-inoremap qq <Esc>
 " Buffers
 " Navigate between buffers
 nmap bn :bnext<CR>
 nmap bp :bprevious<CR>
 nmap bd :bdelete<CR>
-" Show/hide line numbers
-nnoremap <C-N><C-N> :set invnu<CR>
-" Toggle relative numbers
-nnoremap <C-R><C-R> :set invrnu<CR>
 " Show/hide blank characters
 nmap <F2> :set invlist<CR>
 imap <F2> <ESC>:set invlist<CR>
@@ -17,6 +11,8 @@ nnoremap <F8> :set invpaste paste?<CR>
 " Enable spell checking
 "nnoremap <F7> :set spell! <CR>
 "inoremap <F7> <C-o> :set spell! <CR>
+" Source init.vim
+nnoremap <space><CR> :so ~/.config/nvim/init.vim<CR>
 " Moving between windows
 nmap sh <C-w>h
 nmap sk <C-w>k
@@ -96,3 +92,19 @@ nmap <leader>dy <Plug>VimwikiMakeYesterdayDiaryNote
 
 " markdown-preview
 nmap <C-m> <Plug>MarkdownPreviewToggle
+
+" Some usefull keybindings
+" "Paste without replacing the default register
+vnoremap <leader>p "_dP
+" Copy to clipboard
+vnoremap <leader>y "+y
+" Prepare to yank large part of code using Vim motions
+nnoremap <leader>y "+y
+" Copy content of entire file to the clipboard
+nnoremap <leader>Y gg"+yG
+" Move line up/down
+vnoremap <leader>J :m '>+1<CR>gv=gv
+vnoremap <leader>K :m '<-2<CR>gv=gv
+" Clear search highlight
+nnoremap <leader>h :nohlsearch<CR>
+
