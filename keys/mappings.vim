@@ -29,6 +29,9 @@ nnoremap  <C-A-t> :FloatermToggle<CR>
 tnoremap <C-A-t> <C-\><C-n>:FloatermToggle<CR>
 " Mapping for nvim-tree
 nnoremap <silent> <C-A-n> :NvimTreeToggle<CR>
+" FZF
+nnoremap <C-p> :GFiles<CR>
+nnoremap <leader>pf :Files<CR>
 " Telescope
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
