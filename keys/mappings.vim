@@ -13,11 +13,6 @@ nnoremap <F8> :set invpaste paste?<CR>
 "inoremap <F7> <C-o> :set spell! <CR>
 " Source init.vim
 nnoremap <space><CR> :so ~/.config/nvim/init.vim<CR>
-" Moving between windows
-nmap sh <C-w>h
-nmap sk <C-w>k
-nmap sj <C-w>j
-nmap sl <C-w>l
 " Mapping to run LazyGit
 nnoremap <silent> <leader>gg :LazyGit<CR>
 " Mapping for Floaterm
