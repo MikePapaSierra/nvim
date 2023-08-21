@@ -39,7 +39,7 @@ noremap <Right> <Nop>
 "Popup window for Go Doc
 let g:go_doc_popup_window = 1
 
-"Dracula theme
+"Theme
 let g:dracula_colorterm=0
 colorscheme dracula_pro
 
