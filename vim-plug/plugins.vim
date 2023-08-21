@@ -58,6 +58,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " SplitJoin plugin
     Plug 'AndrewRadev/splitjoin.vim'
 
+    " Tmux integration
+    Plug 'christoomey/vim-tmux-navigator'
+
     " sneak
     "Plug 'justinmk/vim-sneak'
 
