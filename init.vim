@@ -7,8 +7,6 @@
 "
 " General configuration
 source $HOME/.config/nvim/general/settings.vim
-" Filetype configuration
-source $HOME/.config/nvim/general/filetypes.vim
 " Keybindings
 source $HOME/.config/nvim/keys/mappings.vim
 " Plugin installation
