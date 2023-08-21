@@ -29,8 +29,8 @@ lua require('nvim-cmp')
 lua require('tree')
 " Colorization
 lua require('plug-colorizer')
-" Configure Dracula theme
-packadd! dracula_pro
+" Load Dracula Pro
+packadd dracula_pro
 " Enable transparency
 hi Normal guibg=None ctermbg=None
 hi EndOfBuffer guibg=None ctermbg=None
