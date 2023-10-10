@@ -1,5 +1,4 @@
 return {
-	"christoomey/vim-tmux-navigator",
-	"nvim-tree/nvim-tree.lua",
+	'christoomey/vim-tmux-navigator',
 	'michal-h21/vimwiki-sync'
 }
