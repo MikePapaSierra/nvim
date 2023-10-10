@@ -74,6 +74,17 @@ Big kudos for authors of that plugins.
 My main inspiration to create this configuration was stream one of the AWS developer advocate [Darko Mesaros](https://github.com/darko-mesaros).
 Recording from that session can be find [here](https://www.youtube.com/watch?v=kPnYFsXml-I).
 
+Recently I went thru some resources in the web that are describing NeoVim configuration in Lua language:
+- https://www.youtube.com/watch?v=6mxWayq-s9I
+- https://www.youtube.com/watch?v=NL8D8EkphUw
+- https://www.youtube.com/watch?v=aeQn9MRTjxc
+- https://www.youtube.com/watch?v=RziPWdTzSV8
+- https://www.youtube.com/watch?v=GYVbYCST_Yc
+- https://www.youtube.com/watch?v=7k0KZsheLP4
+- https://www.youtube.com/watch?v=5HXINnalrAQ
+- https://www.youtube.com/watch?v=FuYQ7M73bC0
+- https://www.youtube.com/watch?v=Co7gcSvq6jA
+
 ## License
 
 This code is distributed on [MIT License](/LICENSE).
