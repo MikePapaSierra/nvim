@@ -37,6 +37,10 @@ vim.o.mouse = 'a'
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- Configure white characters that will be shown
+vim.opt.listchars = "space:.,tab:> ,trail:-,eol:↴"
+vim.opt.list = true
+
 -- Enable DraculaPro theme
 vim.cmd("packadd! dracula_pro")
 vim.g.dracula_colorterm = 0
