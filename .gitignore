@@ -2,3 +2,4 @@ autoload/*
 autoload/*.*
 .netrwhist
 spell/*
+lazy-lock.json
