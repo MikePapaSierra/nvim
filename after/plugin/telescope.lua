@@ -10,6 +10,9 @@ require('telescope').setup {
 			},
 		},
 	},
+	extensions = {
+		noice = {}
+	}
 }
 
 --pcall(require('telescope').locad_extension, 'fzf')
