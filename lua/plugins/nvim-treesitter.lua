@@ -3,7 +3,22 @@ return {
 	build = ':TSUpdate',
 	config = function()
 		require('nvim-treesitter.configs').setup({
-			ensure_installed = { 'c', 'lua', 'vim', 'vimdoc', 'go', 'fish', 'dockerfile', 'bash', 'markdown', 'markdown_inline' },
+			ensure_installed = {
+				'lua',
+				'vim',
+				'vimdoc',
+				'bash',
+				'fish',
+				'regex',
+				'json',
+				'yaml',
+				'python',
+				'go',
+				'dockerfile',
+				'terraform',
+				'markdown',
+				'markdown_inline',
+			},
 
 			sync_install = false,
 
