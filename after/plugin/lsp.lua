@@ -4,8 +4,8 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr })
   end
 
-  bufmap('<leader>r', vim.lsp.buf.rename)
-  bufmap('<leader>a', vim.lsp.buf.code_action)
+  bufmap('<leader>rn', vim.lsp.buf.rename)
+  bufmap('<leader>ca', vim.lsp.buf.code_action)
 
   bufmap('gd', vim.lsp.buf.definition)
   bufmap('gD', vim.lsp.buf.declaration)
@@ -36,7 +36,7 @@ require("mason-lspconfig").setup_handlers({
         }
     end,
 
-    ["lua_ls"] = function()
+    ["lua-language-server"] = function()
         require('neodev').setup()
         require('lspconfig').lua_ls.setup {
             on_attach = on_attach,
@@ -48,5 +48,13 @@ require("mason-lspconfig").setup_handlers({
                 },
             }
         }
-    end
+    end,
+
+	["pyright"] = function()
+		require('lspconfig').pyright.setup {
+			on_attach = on_attach,
+			capabilities = capabilities,
+			filetype = { "python" },
+		}
+	end
 })
