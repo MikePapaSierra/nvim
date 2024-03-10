@@ -19,7 +19,7 @@ return {
 			},
 		})
 		local keymap = vim.keymap
-		keymap.set('n', '<leader>te', '<cmd>NvimTreeToggle<CR>')
+		keymap.set('n', '<leader>tt', '<cmd>NvimTreeToggle<CR>')
 		keymap.set('n', '<leader>tr', '<cmd>NvimTreeRefresh<CR>')
 	end,
 }
