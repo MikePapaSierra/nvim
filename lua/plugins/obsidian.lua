@@ -7,5 +7,11 @@ return {
     "nvim-lua/plenary.nvim",
   },
   opts = {
+	workspaces = {
+	    {
+	      name = "personal",
+	      path = "~/Documents/kamikazestar",
+	    },
+	},
   },
 }
