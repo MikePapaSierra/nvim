@@ -3,3 +3,4 @@ autoload/*.*
 .netrwhist
 spell/*
 lazy-lock.json
+.luarc.json
