@@ -50,3 +50,5 @@ vim.cmd[[colorscheme dracula_pro]]
 vim.g.nocompatible = true
 vim.cmd("filetype plugin on")
 
+-- Obsidian plugin required settings
+vim.opt.conceallevel = 1
