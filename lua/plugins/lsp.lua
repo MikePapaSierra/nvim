@@ -51,7 +51,7 @@ return {
 				null_ls.builtins.formatting.isort,
 				-- TODO: [null-ls] failed to load builtin ansible_lint for method formatting; please check your config
 				-- [lspconfig] Cannot access configuration for ansible. Ensure this server is listed in `server_configurations.md` or added as a custom server.
-				null_ls.builtins.formatting.ansible_lint,
+				--	null_ls.builtins.formatting.ansible_lint,
 			}
 		})
 		vim.keymap.set('n', '<leader>gf', vim.lsp.buf.format, {})
