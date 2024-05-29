@@ -41,11 +41,6 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.listchars = "space:.,tab:> ,trail:-,eol:↴"
 vim.opt.list = true
 
--- Enable DraculaPro theme
-vim.cmd("packadd! dracula_pro")
-vim.g.dracula_colorterm = 0
-vim.cmd[[colorscheme dracula_pro]]
-
 -- Vimwiki required settings
 vim.g.nocompatible = true
 vim.cmd("filetype plugin on")
