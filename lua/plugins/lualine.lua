@@ -6,7 +6,7 @@ return {
 	config = function()
 		require('lualine').setup({
 			icons_enabled = true,
-			theme = 'dracula',
+			theme = 'catppuccin',
 		})
 end,
 }

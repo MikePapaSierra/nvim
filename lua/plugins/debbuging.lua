@@ -29,5 +29,12 @@ return {
 		-- TODO: This is throwing an error
 		-- vim.keymap.set("n", "<Leader>dt", dap.toggle_breakpoint(), {})
 		-- vim.keymap.set("n", "<Leader>dc", dap.continue(), {})
+
+		-- Catppuccin theme
+		local sign = vim.fn.sign_define
+		sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = ""})
+		sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = ""})
+		sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = ""})
+
 	end,
 }
