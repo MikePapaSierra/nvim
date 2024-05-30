@@ -9,7 +9,7 @@ vim.cmd('syntax enable') -- Setting is required by Vimwiki
 vim.o.wrap = false
 vim.o.encoding = 'utf-8'
 vim.o.fileencoding = 'utf-8'
-vim.o.pumheight = '10'
+vim.o.pumheight = 10
 vim.o.clipboard = 'unnamedplus'
 
 vim.o.number = true
@@ -27,7 +27,7 @@ vim.o.cursorline = true
 vim.o.laststatus = 2
 
 vim.o.noflodenable = true
-vim.o.scrolloff = '8'
+vim.o.scrolloff = 10
 
 vim.o.updatetime = 300
 vim.o.termguicolors = true
