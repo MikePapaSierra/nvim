@@ -47,6 +47,13 @@ vim.keymap.set("n", "#", "#zz")
 -- Turn off highlight results
 vim.keymap.set("n", "<leader>no", "<CMDv>noh<CR>")
 
+-- Git bindings
+vim.keymap.set({ "n", "v" }, "<leader>gbf", ":GBrowse<cr>", { desc = "[G]it [B]rowse [F]ile" })
+vim.keymap.set("n", "<leader>glc", function()
+    vim.cmd ":GBrowse!"
+end, { desc = "[G]it [L]ink [C]opy" })
+vim.keymap.set("n", "<leader>gd", ":Gvdiffsplit<cr>", { desc = "[G]it [D]iff" })
+
 -- Diagnostics
 
 -- Goto next diagnostic of any severity
