@@ -1,3 +1,9 @@
+-- Terminal
+-- TODO: Add keymap to close terminal bffer without closing vim
+-- INFO: To escape terminal mode, press <C-\><C-n>
+vim.keymap.set("n", "<leader>tsv", ":vsp term://", { desc = "Open vertical terminal split" })
+vim.keymap.set("n", "<leader>tsh", ":sp term://", { desc = "Open horizontal terminal split" })
+
 -- Press S for quick find/replace for the word under the cursor
 vim.keymap.set("n", "S", function()
     local cmd = ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>"
