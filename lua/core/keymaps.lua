@@ -129,8 +129,10 @@ vim.keymap.set("i", "jj", "<ESC>")
 vim.keymap.set("v", "<leader>p", '"_dP')
 
 -- Move selected text up/down
-vim.keymap.set("v", "A-j", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "<A-k", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "<leader>mj", ":m '>+1<CR>gv=gv", { desc = "Move selected text down" })
+vim.keymap.set("v", "<leader>mk", ":m '<-2<CR>gv=gv", { desc = "Move selected text up" })
+vim.keymap.set("n", "<leader>mj", ":m .+1<CR>==", { desc = "Move current line down" })
+vim.keymap.set("n", "<leader>mk", ":m .-2<CR>==", { desc = "Move current line up" })
 
 -- Reselect last visual selection
 vim.keymap.set("x", "<<", function()
