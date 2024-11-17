@@ -15,6 +15,14 @@ vim.keymap.set("n", "<leader>sw", function()
     require("spectre").open_visual({ select_word = true })
 end, { desc = "Search current word" })
 
+-- Paste from selected register
+vim.keymap.set("i", "<c-r>", function()
+    require("telescope.builtin").registers()
+end, { remap = true, silent = false, desc = "Paste from selected register", })
+
+-- Yank current file in to the cloppboard buffer
+vim.keymap.set("n", "<leader>yf", ":%y<cr>", { desc = "[Y]ank [F]ile" })
+
 -- Center buffer while navigating
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
