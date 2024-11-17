@@ -1,18 +1,18 @@
 -- Press S for quick find/replace for the word under the cursor
 vim.keymap.set("n", "S", function()
-	local cmd = ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>"
-	local keys = vim.api.nvim_replace_termcodes(cmd, true, false, true)
-	vim.api.nvim_feedkeys(keys, "n", true)
+    local cmd = ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>"
+    local keys = vim.api.nvim_replace_termcodes(cmd, true, false, true)
+    vim.api.nvim_feedkeys(keys, "n", true)
 end)
 
 -- Open Spectre for global find/replace
 vim.keymap.set("n", "<leader>S", function()
-	require("spectre").toggle()
+    require("spectre").toggle()
 end)
 
 -- Open Spectre for global find/replace for the word under the cursor in normal mode
 vim.keymap.set("n", "<leader>sw", function()
-	require("spectre").open_visual({select_word = true})
+    require("spectre").open_visual({ select_word = true })
 end, { desc = "Search current word" })
 
 -- Center buffer while navigating
@@ -37,8 +37,8 @@ vim.keymap.set("n", "<leader>no", "<CMDv>noh<CR>")
 
 -- Goto next diagnostic of any severity
 vim.keymap.set("n", "]d", function()
-   vim.lsp.diagnostic.goto_next()
-   vim.api.nvim_feedkeys("zz", "n", false)
+    vim.lsp.diagnostic.goto_next()
+    vim.api.nvim_feedkeys("zz", "n", false)
 end)
 
 -- Goto previous diagnostic of any severity
@@ -67,13 +67,13 @@ end)
 
 -- Goto previous warning diagnostic
 vim.keymap.set("n", "[w", function()
-	vim.lsp.diagnostic.goto_prev({ severity = vim.lsp.protocol.DiagnosticSeverity.Warning })
-	vim.api.nvim_feedkeys("zz", "n", false)
+    vim.lsp.diagnostic.goto_prev({ severity = vim.lsp.protocol.DiagnosticSeverity.Warning })
+    vim.api.nvim_feedkeys("zz", "n", false)
 end)
 
 vim.keymap.set("n", "<leader>d", function()
     vim.diagnostic.open_float({
-		border = "rounded",
+        border = "rounded",
     })
 end)
 
@@ -102,7 +102,7 @@ vim.keymap.set("n", "<leader>rw", ":RotateWindows<CR>", { desc = "[R]otate [W]in
 vim.keymap.set("n", "<leader>f", "<CMD>Format<CR>", { desc = "[F]ormat" })
 
 -- Press leader-gx to open the URL under the cursor
-vim.keymap.set("n", "<leader>gx", ":sil !open <cWORD><CR>", { desc = "Open URL under cursor" , silent = true})
+vim.keymap.set("n", "<leader>gx", ":sil !open <cWORD><CR>", { desc = "Open URL under cursor", silent = true })
 
 --- LSP keybindings
 --vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP: [R]e[n]ame", buffer = buffer_number })
@@ -124,7 +124,7 @@ vim.keymap.set("n", "<leader>gx", ":sil !open <cWORD><CR>", { desc = "Open URL u
 -- Map jj to <ESC>
 vim.keymap.set("i", "jj", "<ESC>")
 
--- Visual -- 
+-- Visual --
 -- Paste without loosing the content of the register
 vim.keymap.set("v", "<leader>p", '"_dP')
 
@@ -134,11 +134,11 @@ vim.keymap.set("v", "<A-k", ":m '<-2<CR>gv=gv")
 
 -- Reselect last visual selection
 vim.keymap.set("x", "<<", function()
-	vim.cmd("normal! <<")
-	vim.cmd("normal! gv")
+    vim.cmd("normal! <<")
+    vim.cmd("normal! gv")
 end)
 
 vim.keymap.set("x", ">>", function()
-	vim.cmd("normal! >>")
-	vim.cmd("normal! gv")
+    vim.cmd("normal! >>")
+    vim.cmd("normal! gv")
 end)
