@@ -20,8 +20,8 @@ vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
 -- Diagnostic signs
 -- https://github.com/folke/trouble.nvim/issues/52
 local signs = {
-    Error = " ",
-    Warning = " ",
+    Error = " ",
+    Warn = " ",
     Hint = " ",
     Information = " "
 }
