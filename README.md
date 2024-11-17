@@ -69,6 +69,10 @@ Here's list of all plugins used in the configuration:
 
 Big kudos for authors of that plugins.
 
+## TODO
+
+- [ ] Review [mdeval](https://github.com/jubnzv/mdeval.nvim) plugin
+
 ## Inspiration
 
 My main inspiration to create this configuration was stream one of the AWS developer advocate [Darko Mesaros](https://github.com/darko-mesaros).
