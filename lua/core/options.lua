@@ -1,25 +1,24 @@
--- Assign lader key to a space
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
+-- Consider - as a part of the kayword
 vim.o.iskeyword = vim.o.iskeyword .. ",-"
 
-vim.cmd('syntax enable') -- Setting is required by Vimwiki
-
+-- Line wrapping
 vim.o.wrap = false
-vim.o.encoding = 'utf-8'
-vim.scriptencoding = 'utf-8'
-vim.o.fileencoding = 'utf-8'
-vim.o.pumheight = 10
-vim.o.clipboard = 'unnamedplus'
 
+-- Encoding
+vim.o.encoding = "utf-8"
+vim.scriptencoding = "utf-8"
+vim.o.fileencoding = "utf-8"
+vim.o.pumheight = 10
+--
+-- Clipboard
+vim.o.clipboard = "unnamedplus"
+
+-- Line numbers
 vim.o.number = true
 vim.o.relativenumber = true
+vim.o.signcolumn = "yes"
 
-vim.o.signcolumn = 'yes'
-
-vim.o.title = true
-
+-- Tab and indentation
 vim.o.smarttab = true
 vim.o.expandtab = true
 vim.o.autoindent = true
@@ -31,24 +30,30 @@ vim.o.cursorline = true
 vim.o.laststatus = 2
 vim.o.breakindent = true
 
--- vim.o.noflodenable = true
-vim.o.scrolloff = 10
+-- Split windows
+vim.o.splitright = true
+vim.o.splitbelow = true
 
-vim.o.updatetime = 300
+-- Apperance
 vim.o.termguicolors = true
+vim.o.signcolumn = "yes"
+vim.diagnostic.config({
+    float = { boarder = "rounded" },
+})
+vim.o.title = true
+vim.o.scrolloff = 10
+vim.o.updatetime = 300
 
-vim.o.mouse = 'a'
+-- Mouse
+vim.o.mouse = "a"
 
+-- Netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- Configure white characters that will be shown
 vim.opt.listchars = "space:.,tab:> ,trail:-,eol:↴"
 vim.opt.list = true
-
--- Vimwiki required settings
-vim.g.nocompatible = true
-vim.cmd("filetype plugin on")
 
 -- Obsidian plugin required settings
 vim.opt.conceallevel = 1
