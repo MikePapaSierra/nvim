@@ -11,12 +11,13 @@ return {
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",
 		},
-		config = function ()
+		config = function()
 			require("luasnip.loaders.from_vscode").lazy_load()
-		end
+		end,
 	},
 	{
 		"hrsh7th/nvim-cmp",
+		event = "InsertEnter",
 		dependencies = {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
@@ -71,12 +72,12 @@ return {
 					["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 				}),
 				sources = cmp.config.sources({
-					{ name = 'nvim_lsp' },
-					{ name = 'buffer', max_item_count = 5 },
-					{ name = 'copilot' },
-					{ name = 'path', max_item_count = 3 },
+					{ name = "nvim_lsp" },
+					{ name = "buffer", max_item_count = 5 },
+					{ name = "copilot" },
+					{ name = "path", max_item_count = 3 },
 					{ name = "luasnip", max_item_count = 3 },
-					{ name = 'emoji' },
+					{ name = "emoji" },
 				}),
 				formatting = {
 					expandable_indicator = true,
@@ -112,7 +113,7 @@ return {
 							TypeParameter = "",
 							Copilot = "",
 						},
-					})
+					}),
 				},
 				experimental = {
 					ghost_text = true,
