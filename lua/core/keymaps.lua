@@ -44,6 +44,36 @@ vim.keymap.set("n", "%", "%zz")
 vim.keymap.set("n", "*", "*zz")
 vim.keymap.set("n", "#", "#zz")
 
+---- Barbar
+-- Move to previous/next
+vim.api.nvim_set_keymap("n", "<A-h>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<A-l>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true })
+-- Re-order to previous/next
+vim.api.nvim_set_keymap("n", "<A-C-h>", "<Cmd>BufferMovePrevious<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<A-C-l>", "<Cmd>BufferMoveNext<CR>", { noremap = true, silent = true })
+-- Goto buffer in position...
+vim.api.nvim_set_keymap("n", "<A-1>", "<Cmd>BufferGoto 1<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<A-2>", "<Cmd>BufferGoto 2<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<A-3>", "<Cmd>BufferGoto 3<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<A-4>", "<Cmd>BufferGoto 4<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<A-5>", "<Cmd>BufferGoto 5<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<A-6>", "<Cmd>BufferGoto 6<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<A-7>", "<Cmd>BufferGoto 7<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<A-8>", "<Cmd>BufferGoto 8<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<A-9>", "<Cmd>BufferGoto 9<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<A-0>", "<Cmd>BufferLast<CR>", { noremap = true, silent = true })
+-- Pin/unpin buffer
+vim.api.nvim_set_keymap("n", "<A-p>", "<Cmd>BufferPin<CR>", { noremap = true, silent = true })
+-- Close buffer
+vim.api.nvim_set_keymap("n", "<A-c>", "<Cmd>BufferClose<CR>", { noremap = true, silent = true })
+-- Magic buffer-picking mode
+vim.api.nvim_set_keymap("n", "<C-p>", "<Cmd>BufferPick<CR>", { noremap = true, silent = true })
+-- Sort automatically by...
+vim.api.nvim_set_keymap("n", "<Space>bb", "<Cmd>BufferOrderByBufferNumber<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Space>bd", "<Cmd>BufferOrderByDirectory<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Space>bl", "<Cmd>BufferOrderByLanguage<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Space>bw", "<Cmd>BufferOrderByWindowNumber<CR>", { noremap = true, silent = true })
+
 -- Turn off highlight results
 vim.keymap.set("n", "<leader>no", "<CMDv>noh<CR>")
 
