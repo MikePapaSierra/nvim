@@ -7,13 +7,20 @@ vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", { silent = tr
 
 -- Diagnostic signs
 -- https://github.com/folke/trouble.nvim/issues/52
-local signs = {
-	Error = " ",
-	Warn = " ",
-	Hint = " ",
-	Information = " ",
-}
-for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
+vim.diagnostic.config({
+    virtual_text = {
+        prefix = "●", -- Could be '●', '▎', 'x'
+        spacing = 4,
+    },
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = " ",
+            [vim.diagnostic.severity.WARN] = " ",
+            [vim.diagnostic.severity.INFO] = " ",
+            [vim.diagnostic.severity.HINT] = " ",
+        },
+    },
+    underline = true,
+    update_in_insert = false,
+    severity_sort = false,
+})
