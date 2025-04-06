@@ -13,12 +13,12 @@ return {
 
 		require('spectre').setup({
 			hilight = {
-				ui = "DraculaPro",
+				ui = "Catppuccin",
 				replace = {
-					ui = "DraculaPro",
+					ui = "Catppuccin",
 				},
 				search = {
-					ui = "DraculaPro",
+					ui = "Catppuccin",
 				},
 			},
 			mapping = {
