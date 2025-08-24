@@ -29,9 +29,9 @@ return {
             dapui.close()
         end
 
-        -- TODO: This is throwing an error
-        -- vim.keymap.set("n", "<Leader>db", dap.toggle_breakpoint(), {})
-        -- vim.keymap.set("n", "<Leader>dc", dap.continue(), {})
+        -- TODO: This was throwing an error - verify does it still appears
+        vim.keymap.set("n", "<Leader>db", dap.toggle_breakpoint, {})
+        vim.keymap.set("n", "<Leader>dc", dap.continue, {})
 
         -- Catppuccin theme
         local sign = vim.fn.sign_define
