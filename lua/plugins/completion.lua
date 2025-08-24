@@ -72,12 +72,12 @@ return {
 					["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 				}),
 				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-					{ name = "buffer", max_item_count = 5 },
-					{ name = "copilot" },
-					{ name = "path", max_item_count = 3 },
-					{ name = "luasnip", max_item_count = 3 },
-					{ name = "emoji" },
+					{ name = "nvim_lsp", priority = 1000 },
+					{ name = "luasnip", priority = 750, max_item_count = 3 },
+					{ name = "copilot", priority = 700 },
+                    { name = "buffer", priority = 500, max_item_count = 5 },
+                    { name = "path", priority = 250, max_item_count = 3 },
+                    { name = "emoji", priority = 100 },
 				}),
 				formatting = {
 					expandable_indicator = true,
