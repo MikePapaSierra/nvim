@@ -42,7 +42,10 @@ return {
                     "pylint"
                 },
             })
-            local lspconfig = require("lspconfig")
+            local ok, lspconfig = pcall(require, "lspconfig")
+            if not ok then
+                return
+            end
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local on_attach = require("cmp_nvim_lsp").on_attach
             local util = require("lspconfig/util")
