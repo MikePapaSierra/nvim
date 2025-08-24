@@ -65,3 +65,9 @@ vim.opt.list = true
 
 -- Obsidian plugin required settings
 vim.opt.conceallevel = 1
+
+-- Performance improvements
+vim.o.timeoutlen = 300 -- Faster which-key popup
+vim.o.updatetime = 250 -- Faster completions and gutter updates
+vim.o.redrawtime = 10000 -- Increaese for larger filesa
+vim.o.synmaxcol = 240 -- Don't syntax hilight long lines
