@@ -38,7 +38,15 @@ vim.o.splitbelow = true
 vim.o.termguicolors = true
 vim.o.signcolumn = "yes"
 vim.diagnostic.config({
-    float = { boarder = "rounded" },
+    float = { border = "rounded" },
+    visual_text  = {
+        prefix = '●',
+        source = 'if_many',
+    },
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = true,
 })
 vim.o.title = true
 vim.o.scrolloff = 10
