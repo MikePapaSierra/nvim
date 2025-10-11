@@ -3,7 +3,11 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 	},
 	{
-		"github/copilot.vim",
+		"zbirenbaum/copilot-cmp",
+		dependencies = { "zbirenbaum/copilot.lua" },
+		config = function()
+			require("copilot_cmp").setup()
+		end,
 	},
 	{
 		"L3MON4D3/LuaSnip",

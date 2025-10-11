@@ -2,18 +2,48 @@ return {
     {
         "CopilotC-Nvim/CopilotChat.nvim",
         dependencies = {
-            { "github/copilot.vim" },                               -- or zbirenbaum/copilot.lua
-            { "nvim-lua/plenary.nvim",         branch = "master" }, -- for curl, log and async functions
-            { "nvim-telescope/telescope.nvim", branch = "master" }, -- for telescope integration
+            { "zbirenbaum/copilot.lua" }, -- Use copilot.lua instead of copilot.vim
+            { "nvim-lua/plenary.nvim", branch = "master" },
+            { "nvim-telescope/telescope.nvim", branch = "master" },
         },
-        build = "make tiktoken",                                    -- Only on MacOS or Linux
+        build = "make tiktoken",
         opts = {
-            debug = true,                                           -- Enable debugging
-            show_help = true,                                       -- Show help actions
+            debug = true,
+            show_help = true,
             window = {
-                layout = "float",
+                layout = "vertical",
+                title = "Copilot Chat",
+                border = "rounded",
             },
-            auto_follow_cursor = false, -- Don't follow the cursor after getting response
+            headers = {
+                user = '👤 You: ',
+                assistant = '🤖 Copilot: ',
+                tool = '🔧 Tool: ',
+            },
+            auto_follow_cursor = false,
+            prompts = {
+                Commit = {
+                    prompt =
+                    "Write a concise and clear commit message for the following git diff. Use the commitizen convention.",
+                    selection = function(source)
+                        return require("CopilotChat.select").gitdiff(source, false)
+                    end,
+                },
+                CommitStaged = {
+                    prompt =
+                    "Write a concise and clear commit message for the following staged git diff. Use the commitizen convention.",
+                    selection = function(source)
+                        return require("CopilotChat.select").gitdiff(source, true)
+                    end,
+                },
+                RenameVariable = {
+                    prompt = "Suggest a better variable name for the following code. Explain why the new name is better.",
+                    selection = function(source)
+                        local select = require("CopilotChat.select").visual
+                        return select.visual(source)
+                    end,
+                },
+            },
         },
         config = function(_, opts)
             local chat = require("CopilotChat")
@@ -139,5 +169,16 @@ return {
             -- Toggle Copilot Chat Vsplit
             { "<leader>ccv", "<cmd>CopilotChatToggle<cr>",        desc = "CopilotChat - Toggle Vsplit" },
         },
+    },
+    {
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "InsertEnter",
+        config = function()
+            require("copilot").setup({
+                suggestion = { enabled = false },
+                panel = { enabled = false },
+            })
+        end,
     },
 }
