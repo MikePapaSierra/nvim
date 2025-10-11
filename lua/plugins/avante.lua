@@ -1,36 +1,149 @@
 return {
 	"yetone/avante.nvim",
-	-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-	-- ⚠️ must add this setting! ! !
-	build = vim.fn.has("win32") ~= 0
-	    and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
-	    or "make",
 	event = "VeryLazy",
-	version = false, -- Never set this value to "*"! Never!
-	---@module 'avante'
-	---@type avante.Config
+	lazy = false,
+	version = false, -- set this if you want to always pull the latest change
 	opts = {
-		-- add any opts here
-		-- this file can contain specific instructions for your project
-		instructions_file = "avante.md",
-		-- for example
-		provider = "copilot",
+		-- Provider configuration
+		provider = "copilot", -- GitHub Copilot is the provider
+		auto_suggestions = true,
+		auto_set_highlight_group = true,
+		auto_set_keymaps = true,
+		auto_apply_diff_after_generation = false,
+		dual_boost = {
+			enabled = false,
+			first_provider = "copilot",
+			second_provider = "claude",
+			prompt = "Based on the two reference outputs below, generate a response that incorporates the best elements from both.",
+			timeout = 60000, -- Timeout in milliseconds
+		},
+		behaviour = {
+			auto_suggestions = false, -- Experimental stage
+			auto_set_highlight_group = true,
+			auto_set_keymaps = true,
+			auto_apply_diff_after_generation = false,
+			support_paste_from_clipboard = false,
+		},
+		mappings = {
+			--- @class AvanteConflictMappings
+			diff = {
+				ours = "co",
+				theirs = "ct",
+				all_theirs = "ca",
+				both = "cb",
+				cursor = "cc",
+				next = "]x",
+				prev = "[x",
+			},
+			suggestion = {
+				accept = "<M-l>",
+				next = "<M-]>",
+				prev = "<M-[>",
+				dismiss = "<C-]>",
+			},
+			jump = {
+				next = "]]",
+				prev = "[[",
+			},
+			submit = {
+				normal = "<CR>",
+				insert = "<C-s>",
+			},
+			sidebar = {
+				apply_all = "A",
+				apply_cursor = "a",
+				switch_windows = "<Tab>",
+				reverse_switch_windows = "<S-Tab>",
+			},
+		},
+		hints = { enabled = true },
+		windows = {
+			position = "right", -- the position of the sidebar
+			wrap = true, -- similar to vim.o.wrap
+			width = 30, -- default % based on available width
+			sidebar_header = {
+				enabled = true, -- true, false to enable/disable the header
+				align = "center", -- left, center, right for title
+				rounded = true,
+			},
+			input = {
+				prefix = "> ",
+				height = 8, -- Height of the input window in vertical layout
+			},
+			edit = {
+				border = "rounded",
+				start_insert = true, -- Start insert mode when opening the edit window
+			},
+			ask = {
+				floating = false, -- Open the 'AvanteAsk' prompt in a floating window
+				start_insert = true, -- Start insert mode when opening the ask window
+				border = "rounded",
+				---@type "ours" | "theirs"
+				focus_on_apply = "ours", -- which diff to focus after applying
+			},
+		},
+		highlights = {
+			---@type AvanteConflictHighlights
+			diff = {
+				current = "DiffText",
+				incoming = "DiffAdd",
+			},
+		},
+		--- @class AvanteConflictUserConfig
+		diff = {
+			autojump = true,
+			---@type string | fun(): string
+			list_opener = "copen",
+			--- Override the 'timeoutlen' setting while hovering over a diff (see :help timeoutlen).
+			--- Helps to avoid entering operator-pending mode with diff mappings.
+			override_timeoutlen = 500,
+		},
+		--- @class AvanteRepoMapConfig
+		repo_map = {
+			ignore_patterns = { "%.git", "node_modules", "%.next" },
+			nerd_font_icon = " ",
+		},
+		--- @class AvanteSystemPrompt
+		system_prompt = [[
+You are an excellent programming assistant.
+You should provide helpful and accurate responses.
+When providing code suggestions, explain your reasoning.  
+Always consider the context of the conversation and previous messages.
+Be concise but thorough in your explanations.
+]],
+		--- @class AvanteProviderConfig - Updated configuration structure
 		providers = {
+			---@type AvanteProvider
 			copilot = {
-				model = "claude-sonnet-4",
+				endpoint = "https://api.githubcopilot.com",
+				model = "claude-3-5-sonnet-20241022", -- Claude Sonnet 4 model via Copilot
+				proxy = nil, -- [protocol://]host[:port] Use this proxy
+				allow_insecure = false, -- Allow insecure server connections
+				timeout = 30000, -- Timeout in milliseconds
+				extra_request_body = {
+					temperature = 0,
+					max_tokens = 8192,
+				},
+			},
+			---@type AvanteProvider
+			claude = {
+				endpoint = "https://api.anthropic.com",
+				model = "claude-3-5-sonnet-20241022", -- Direct Claude Sonnet 4 model
+				["api_key_name"] = "ANTHROPIC_API_KEY",
+				extra_request_body = {
+					temperature = 0,
+					max_tokens = 8192,
+				},
 			},
 		},
 	},
+	-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+	build = "make",
 	dependencies = {
+		"stevearc/dressing.nvim",
 		"nvim-lua/plenary.nvim",
 		"MunifTanjim/nui.nvim",
 		--- The below dependencies are optional,
-		"echasnovski/mini.pick", -- for file_selector provider mini.pick
-		"nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-		"hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-		"ibhagwan/fzf-lua", -- for file_selector provider fzf
-		"stevearc/dressing.nvim", -- for input provider dressing
-		"folke/snacks.nvim", -- for input provider snacks
 		"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
 		"zbirenbaum/copilot.lua", -- for providers='copilot'
 		{

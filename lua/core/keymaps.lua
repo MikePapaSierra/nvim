@@ -231,3 +231,12 @@ vim.keymap.set("x", ">>", function()
     vim.cmd("normal! >>")
     vim.cmd("normal! gv")
 end)
+
+---- Avante keymaps
+vim.keymap.set("n", "<leader>aa", "<cmd>AvanteAsk<cr>", { desc = "Avante: Ask" })
+vim.keymap.set("v", "<leader>aa", "<cmd>AvanteAsk<cr>", { desc = "Avante: Ask" })
+vim.keymap.set("n", "<leader>ar", "<cmd>AvanteRefresh<cr>", { desc = "Avante: Refresh" })
+vim.keymap.set("n", "<leader>ae", "<cmd>AvanteEdit<cr>", { desc = "Avante: Edit" })
+vim.keymap.set("v", "<leader>ae", "<cmd>AvanteEdit<cr>", { desc = "Avante: Edit" })
+vim.keymap.set("n", "<leader>at", "<cmd>AvanteToggle<cr>", { desc = "Avante: Toggle" })
+vim.keymap.set("n", "<leader>af", "<cmd>AvanteFocus<cr>", { desc = "Avante: Focus" })
