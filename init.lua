@@ -18,8 +18,11 @@ vim.g.maplocalleader = " "
 
 -- Initialize Lazy with dynamic loading of anything in plugins directory
 require("lazy").setup("plugins", {
+	defaults = {
+		lazy = false, -- Disable lazy loading globally - all plugins load on startup
+	},
 	change_detection = {
-		enabled = true, -- automatically chack for config file changes and reload ui
+		enabled = true, -- automatically check for config file changes and reload ui
 		notify = false, -- turn off notifications whenever plugin config was changed
 	},
 })
