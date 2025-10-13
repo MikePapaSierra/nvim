@@ -67,22 +67,14 @@ vim.keymap.set("n", "<Space>bl", "<Cmd>BufferOrderByLanguage<CR>", { noremap = t
 vim.keymap.set("n", "<Space>bw", "<Cmd>BufferOrderByWindowNumber<CR>", { noremap = true, silent = true })
 
 ---- Search and replace
--- Press S for quick find/replace for the word under the cursor
-vim.keymap.set("n", "S", function()
+-- Press <leader>sr for quick find/replace for the word under the cursor (safer than overriding S)
+vim.keymap.set("n", "<leader>sr", function()
     local cmd = ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>"
     local keys = vim.api.nvim_replace_termcodes(cmd, true, false, true)
     vim.api.nvim_feedkeys(keys, "n", true)
-end)
--- Open Spectre for global find/replace
-vim.keymap.set("n", "<leader>S", function()
-    require("spectre").toggle()
-end)
--- Open Spectre for global find/replace for the word under the cursor in normal mode
-vim.keymap.set("n", "<leader>sw", function()
-    require("spectre").open_visual({ select_word = true })
-end, { desc = "Search current word" })
+end, { desc = "Search and replace word under cursor" })
 -- Turn off highlight results
-vim.keymap.set("n", "<leader>no", "<CMDv>noh<CR>")
+vim.keymap.set("n", "<leader>no", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 
 ---- Git keymappings
 vim.keymap.set({ "n", "v" }, "<leader>gbf", ":GBrowse<cr>", { desc = "[G]it [B]rowse [F]ile" })
@@ -131,32 +123,32 @@ end)
 ---- Diagnostics
 -- Goto next diagnostic of any severity
 vim.keymap.set("n", "]d", function()
-    vim.lsp.diagnostic.goto_next()
+    vim.diagnostic.goto_next()
     vim.api.nvim_feedkeys("zz", "n", false)
 end)
 -- Goto previous diagnostic of any severity
 vim.keymap.set("n", "[d", function()
-    vim.lsp.diagnostic.goto_prev()
+    vim.diagnostic.goto_prev()
     vim.api.nvim_feedkeys("zz", "n", false)
 end)
--- Coto next error diagnostic
+-- Goto next error diagnostic
 vim.keymap.set("n", "]e", function()
-    vim.lsp.diagnostic.goto_next({ severity = vim.lsp.protocol.DiagnosticSeverity.Error })
+    vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
     vim.api.nvim_feedkeys("zz", "n", false)
 end)
 -- Goto previous error diagnostic
 vim.keymap.set("n", "[e", function()
-    vim.lsp.diagnostic.goto_prev({ severity = vim.lsp.protocol.DiagnosticSeverity.Error })
+    vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
     vim.api.nvim_feedkeys("zz", "n", false)
 end)
 -- Goto next warning diagnostic
 vim.keymap.set("n", "]w", function()
-    vim.lsp.diagnostic.goto_next({ severity = vim.lsp.protocol.DiagnosticSeverity.Warning })
+    vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.WARN })
     vim.api.nvim_feedkeys("zz", "n", false)
 end)
 -- Goto previous warning diagnostic
 vim.keymap.set("n", "[w", function()
-    vim.lsp.diagnostic.goto_prev({ severity = vim.lsp.protocol.DiagnosticSeverity.Warning })
+    vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.WARN })
     vim.api.nvim_feedkeys("zz", "n", false)
 end)
 -- Open diagnostic in pop-up window
@@ -210,10 +202,7 @@ vim.keymap.set("n", "<leader>ef", ":NvimTreeFindFile<CR>") -- find file in file 
 vim.keymap.set("v", "<leader>p", '"_dP')
 -- Yank current file in to the cloppboard buffer
 vim.keymap.set("n", "<leader>yf", ":%y<cr>", { desc = "[Y]ank [F]ile" })
--- Paste from selected register
-vim.keymap.set("i", "<c-r>", function()
-    require("telescope.builtin").registers()
-end, { remap = true, silent = false, desc = "Paste from selected register" })
+-- Telescope keybindings are now defined in the plugin config for lazy loading
 
 -- Move selected text up/down
 vim.keymap.set("v", "<leader>mj", ":m '>+1<CR>gv=gv", { desc = "Move selected text down" })
