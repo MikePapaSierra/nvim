@@ -1,7 +1,41 @@
 return {
-	'goolord/alpha-nvim',
-	dependencies = { 'nvim-tree/nvim-web-devicons' },
-	config = function()
-		require'alpha'.setup(require'alpha.themes.startify'.config)
-	end,
+    'goolord/alpha-nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+        local startify = require 'alpha.themes.startify'
+
+        -- Custom header with "Mike Papa Sierra"
+        startify.section.header.val = {
+            "",
+            "",
+            "  ███╗   ███╗██╗██╗  ██╗███████╗",
+            "  ████╗ ████║██║██║ ██╔╝██╔════╝",
+            "  ██╔████╔██║██║█████╔╝ █████╗  ",
+            "  ██║╚██╔╝██║██║██╔═██╗ ██╔══╝  ",
+            "  ██║ ╚═╝ ██║██║██║  ██╗███████╗",
+            "  ╚═╝     ╚═╝╚═╝╚═╝  ╚═╝╚══════╝",
+            "",
+            "  ██████╗  █████╗ ██████╗  █████╗ ",
+            "  ██╔══██╗██╔══██╗██╔══██╗██╔══██╗",
+            "  ██████╔╝███████║██████╔╝███████║",
+            "  ██╔═══╝ ██╔══██║██╔═══╝ ██╔══██║",
+            "  ██║     ██║  ██║██║     ██║  ██║",
+            "  ╚═╝     ╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝",
+            "",
+            "  ███████╗██╗███████╗██████╗ ██████╗  █████╗ ",
+            "  ██╔════╝██║██╔════╝██╔══██╗██╔══██╗██╔══██╗",
+            "  ███████╗██║█████╗  ██████╔╝██████╔╝███████║",
+            "  ╚════██║██║██╔══╝  ██╔══██╗██╔══██╗██╔══██║",
+            "  ███████║██║███████╗██║  ██║██║  ██║██║  ██║",
+            "  ╚══════╝╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝",
+            "",
+            "",
+        }
+
+        -- Set header highlighting
+        startify.section.header.opts.hl = "Type"
+
+        -- Setup alpha with the modified startify config
+        require 'alpha'.setup(startify.config)
+    end,
 }
