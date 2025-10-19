@@ -1,28 +1,29 @@
 return {
 	"yetone/avante.nvim",
+	enabled = true, -- Enable for VS Code-like AI experience
 	event = "VeryLazy",
 	lazy = false,
-	version = false, -- set this if you want to always pull the latest change
+	version = false,
 	opts = {
-		-- Provider configuration
-		provider = "copilot", -- GitHub Copilot is the provider
+		-- Provider configuration - Use Copilot for VS Code compatibility
+		provider = "copilot",
 		auto_suggestions = true,
 		auto_set_highlight_group = true,
 		auto_set_keymaps = true,
 		auto_apply_diff_after_generation = false,
 		dual_boost = {
-			enabled = false,
+			enabled = true, -- Enable for enhanced responses
 			first_provider = "copilot",
 			second_provider = "claude",
-			prompt = "Based on the two reference outputs below, generate a response that incorporates the best elements from both.",
-			timeout = 60000, -- Timeout in milliseconds
+			prompt = "Based on the two reference outputs below, generate a response that incorporates the best elements from both for cloud security engineering.",
+			timeout = 45000, -- Reduced timeout for faster response
 		},
 		behaviour = {
-			auto_suggestions = false, -- Experimental stage
+			auto_suggestions = true, -- Enable for VS Code-like auto suggestions
 			auto_set_highlight_group = true,
 			auto_set_keymaps = true,
 			auto_apply_diff_after_generation = false,
-			support_paste_from_clipboard = false,
+			support_paste_from_clipboard = true, -- Enable clipboard support
 		},
 		mappings = {
 			--- @class AvanteConflictMappings
@@ -36,10 +37,10 @@ return {
 				prev = "[x",
 			},
 			suggestion = {
-				accept = "<M-l>",
+				accept = "<M-l>", -- Alt+L like VS Code Copilot
 				next = "<M-]>",
 				prev = "<M-[>",
-				dismiss = "<C-]>",
+				dismiss = "<C-]>", -- Ctrl+] to dismiss
 			},
 			jump = {
 				next = "]]",
@@ -56,30 +57,29 @@ return {
 				reverse_switch_windows = "<S-Tab>",
 			},
 		},
-		hints = { enabled = true },
+		hints = { enabled = false }, -- Disable hints for cleaner VS Code-like experience
 		windows = {
-			position = "right", -- the position of the sidebar
-			wrap = true, -- similar to vim.o.wrap
-			width = 30, -- default % based on available width
+			position = "right", -- VS Code-like sidebar position
+			wrap = true,
+			width = 40, -- Optimal width for VS Code-like panel
 			sidebar_header = {
-				enabled = true, -- true, false to enable/disable the header
-				align = "center", -- left, center, right for title
-				rounded = true,
+				enabled = true,
+				align = "center", -- Center aligned title like VS Code
+				rounded = false, -- Clean borders like VS Code
 			},
 			input = {
 				prefix = "> ",
-				height = 8, -- Height of the input window in vertical layout
+				height = 6, -- Compact input height
 			},
 			edit = {
-				border = "rounded",
-				start_insert = true, -- Start insert mode when opening the edit window
+				border = "solid", -- VS Code-like clean borders
+				start_insert = true,
 			},
 			ask = {
-				floating = false, -- Open the 'AvanteAsk' prompt in a floating window
-				start_insert = true, -- Start insert mode when opening the ask window
-				border = "rounded",
-				---@type "ours" | "theirs"
-				focus_on_apply = "ours", -- which diff to focus after applying
+				floating = false, -- Use sidebar like VS Code Copilot panel
+				start_insert = true,
+				border = "solid", -- Clean VS Code-like borders
+				focus_on_apply = "ours",
 			},
 		},
 		highlights = {
@@ -101,38 +101,45 @@ return {
 		--- @class AvanteRepoMapConfig
 		repo_map = {
 			ignore_patterns = { "%.git", "node_modules", "%.next" },
-			nerd_font_icon = " ",
+			nerd_font_icon = "*",
 		},
 		--- @class AvanteSystemPrompt
 		system_prompt = [[
-You are an excellent programming assistant.
-You should provide helpful and accurate responses.
-When providing code suggestions, explain your reasoning.  
-Always consider the context of the conversation and previous messages.
-Be concise but thorough in your explanations.
+You are an expert programming assistant specialized in cloud security engineering and modern development practices.
+
+Key guidelines:
+- Provide production-ready, secure code solutions
+- Focus on cloud security best practices (AWS, Azure, GCP)
+- Use modern frameworks and follow industry standards
+- Explain security implications of code suggestions
+- Be concise but thorough, similar to VS Code Copilot Chat
+- Consider Infrastructure as Code, containerization, and DevSecOps practices
+- Prioritize performance, security, and maintainability
 ]],
-		--- @class AvanteProviderConfig - Updated configuration structure
+		--- @class AvanteProviderConfig
 		providers = {
-			---@type AvanteProvider
+			---@type AvanteProvider  
 			copilot = {
 				endpoint = "https://api.githubcopilot.com",
-				model = "claude-3-5-sonnet-20241022", -- Claude Sonnet 4 model via Copilot
-				proxy = nil, -- [protocol://]host[:port] Use this proxy
-				allow_insecure = false, -- Allow insecure server connections
-				timeout = 30000, -- Timeout in milliseconds
+				model = "gpt-4o", -- Use GPT-4o via Copilot for VS Code compatibility
+				proxy = nil,
+				allow_insecure = false,
+				timeout = 20000, -- Faster timeout for responsive experience
 				extra_request_body = {
-					temperature = 0,
-					max_tokens = 8192,
+					temperature = 0.1, -- Slightly creative for better suggestions
+					max_tokens = 4096, -- Balanced token limit
+					stream = true, -- Enable streaming like VS Code
 				},
 			},
 			---@type AvanteProvider
 			claude = {
-				endpoint = "https://api.anthropic.com",
-				model = "claude-3-5-sonnet-20241022", -- Direct Claude Sonnet 4 model
+				endpoint = "https://api.anthropic.com", 
+				model = "claude-3-5-sonnet-20241022",
 				["api_key_name"] = "ANTHROPIC_API_KEY",
 				extra_request_body = {
-					temperature = 0,
-					max_tokens = 8192,
+					temperature = 0.1,
+					max_tokens = 4096,
+					stream = true,
 				},
 			},
 		},
@@ -172,4 +179,58 @@ Be concise but thorough in your explanations.
 			ft = { "markdown", "Avante" },
 		},
 	},
+	-- VS Code-like keybindings and setup
+	keys = {
+		-- VS Code Copilot Chat equivalent
+		{ "<leader>ac", "<cmd>AvanteAsk<cr>", desc = "Avante Chat" },
+		{ "<leader>aa", "<cmd>AvanteToggle<cr>", desc = "Avante Toggle" },
+		{ "<leader>ar", "<cmd>AvanteRefresh<cr>", desc = "Avante Refresh" },
+		{ "<leader>ae", "<cmd>AvanteEdit<cr>", mode = "v", desc = "Avante Edit Selection" },
+		
+		-- VS Code-like quick actions
+		{ "<C-k><C-i>", "<cmd>AvanteAsk<cr>", desc = "Avante: Ask AI" },
+		{ "<C-k><C-e>", "<cmd>AvanteEdit<cr>", mode = "v", desc = "Avante: Edit with AI" },
+		{ "<C-k><C-c>", "<cmd>AvanteChat<cr>", desc = "Avante: Open Chat" },
+	},
+	config = function(_, opts)
+		-- Ensure proper encoding for sign text
+		vim.o.encoding = "utf-8"
+		
+		local ok, avante = pcall(require, "avante")
+		if not ok then
+			vim.notify("Failed to load avante", vim.log.levels.ERROR)
+			return
+		end
+		
+		avante.setup(opts)
+		
+		-- Create VS Code-like commands
+		vim.api.nvim_create_user_command("AvanteChat", function()
+			pcall(vim.cmd, "AvanteAsk")
+		end, { desc = "Open Avante Chat" })
+		
+		-- Test command to verify Avante is working
+		vim.api.nvim_create_user_command("AvanteTest", function()
+			local avante_loaded = pcall(require, "avante")
+			if avante_loaded then
+				vim.notify("✅ Avante is loaded and ready!", vim.log.levels.INFO, { title = "Avante Status" })
+			else
+				vim.notify("❌ Avante failed to load", vim.log.levels.ERROR, { title = "Avante Status" })
+			end
+		end, { desc = "Test Avante loading status" })
+		
+		-- Auto-format on apply (like VS Code)
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "AvanteApplied",
+			callback = function()
+				vim.defer_fn(function()
+					if vim.bo.filetype ~= "" then
+						pcall(vim.lsp.buf.format, { async = false })
+					end
+				end, 100)
+			end,
+		})
+		
+		-- Disable startup notifications completely
+	end,
 }
