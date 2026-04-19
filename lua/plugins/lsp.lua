@@ -65,9 +65,9 @@ return {
 					"helm_ls", -- Kubernetes Helm charts
 					
 					-- Web technologies (dashboards, APIs)
-					"ts_ls", -- TypeScript/JavaScript
-					"html", -- HTML
-					"cssls", -- CSS
+					"ts_ls", -- TypeScript/JavaScript (note: different from typescript-language-server)
+					"html", -- HTML (note: different from html-lsp)
+					"cssls", -- CSS (note: different from css-lsp)
 					"eslint", -- JavaScript/TypeScript linting
 					
 					-- Documentation and markup
@@ -83,16 +83,15 @@ return {
 			-- Enhanced tool installation for cloud security workflow
 			require("mason-tool-installer").setup({
 				ensure_installed = {
-					-- Python ecosystem
+					-- Python ecosystem (formatters/linters, not LSPs)
 					"black", -- Code formatter
 					"isort", -- Import sorter
-					"ruff", -- Fast Python linter
 					"mypy", -- Static type checking
 					-- "bandit", -- Security linter (removed from null-ls)
 					-- "safety", -- Security vulnerability scanner (optional)
 					"debugpy", -- Python debugger
 					
-					-- Go ecosystem
+					-- Go ecosystem (formatters/linters, not LSPs)
 					"gofumpt", -- Enhanced gofmt
 					"goimports", -- Import management
 					"golangci-lint", -- Comprehensive Go linter
@@ -100,16 +99,14 @@ return {
 					"delve", -- Go debugger
 					"gosec", -- Go security analyzer
 					
-					-- Terraform ecosystem
-					"terraform-ls", -- Terraform language server
+					-- Terraform ecosystem (tools, not LSPs)
 					"tflint", -- Terraform linter
 					"tfsec", -- Terraform security scanner
 					"checkov", -- Infrastructure security scanner
 					"terrascan", -- Infrastructure security scanner
 					
-					-- Ansible ecosystem
+					-- Ansible ecosystem (tools, not LSPs)
 					"ansible-lint", -- Ansible best practices
-					"ansible-language-server", -- Enhanced Ansible support
 					
 					-- YAML/JSON tools
 					"yamllint", -- YAML linting
@@ -134,7 +131,7 @@ return {
 					"vale", -- Prose linting
 					"write-good", -- English prose checker
 					
-					-- Web technologies
+					-- Web technologies (formatters/linters, not LSPs)
 					"prettier", -- Multi-language formatter
 					-- "eslint_d", -- Fast ESLint daemon (removed from null-ls)
 					"stylelint", -- CSS linter

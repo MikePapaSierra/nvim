@@ -7,9 +7,11 @@ return {
         "catppuccin/nvim", -- Ensure Catppuccin is loaded first
     },
     config = function()
-        -- Ensure statusline is available for lualine
-        vim.opt.laststatus = 3 -- Global statusline
-        vim.opt.statusline = "" -- Clear any existing statusline
+        -- Small delay to ensure catppuccin is fully loaded
+        vim.defer_fn(function()
+            -- Ensure statusline is available for lualine
+            vim.opt.laststatus = 3 -- Global statusline
+            vim.opt.statusline = "" -- Clear any existing statusline
         
         -- Safely get Catppuccin colors for custom components
         local catppuccin_colors = {}
@@ -162,10 +164,21 @@ return {
             return table.concat(result, " ")
         end
 
+        -- Determine theme - check if catppuccin is available
+        local theme = "auto" -- Default fallback
+        local catppuccin_ok = pcall(require, "catppuccin")
+        if catppuccin_ok then
+            -- Check if catppuccin lualine theme is available
+            local lualine_theme_ok = pcall(require, "lualine.themes.catppuccin")
+            if lualine_theme_ok then
+                theme = "catppuccin"
+            end
+        end
+
         require("lualine").setup({
             options = {
                 icons_enabled = true,
-                theme = "catppuccin", -- Use Catppuccin theme
+                theme = theme, -- Use detected theme
                 component_separators = { left = '', right = '' },
                 section_separators = { left = '', right = '' },
                 disabled_filetypes = {
@@ -217,5 +230,6 @@ return {
                 require("lualine").refresh()
             end,
         })
+        end, 50) -- 50ms delay to ensure catppuccin is loaded
     end,
 }

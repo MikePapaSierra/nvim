@@ -451,7 +451,7 @@ return {
 				},
 			})
 
-			-- Enhanced cmdline completion
+			-- Enhanced cmdline completion for search only (keeping traditional : commands)
 			cmp.setup.cmdline({ '/', '?' }, {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = cmp.config.sources({
@@ -461,15 +461,16 @@ return {
 				})
 			})
 
-			cmp.setup.cmdline(':', {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = cmp.config.sources({
-					{ name = 'path' }
-				}, {
-					{ name = 'cmdline' }
-				}),
-				matching = { disallow_symbol_nonprefix_matching = false }
-			})
+			-- Disabled cmdline completion for : commands to keep traditional vim behavior (w, q, etc.)
+			-- cmp.setup.cmdline(':', {
+			-- 	mapping = cmp.mapping.preset.cmdline(),
+			-- 	sources = cmp.config.sources({
+			-- 		{ name = 'path' }
+			-- 	}, {
+			-- 		{ name = 'cmdline' }
+			-- 	}),
+			-- 	matching = { disallow_symbol_nonprefix_matching = false }
+			-- })
 			
 			-- File type specific configurations
 			cmp.setup.filetype('gitcommit', {
