@@ -5,7 +5,7 @@
 # │ Optimizes your personalObsidianVault structure for enhanced productivity   │
 # ╰─────────────────────────────────────────────────────────────────────────────╯
 
-VAULT_PATH="/home/mps/Documents/personalObsidianVault"
+VAULT_PATH="/home/mps/second-brain/vaults/personal-obsidian-vault"
 
 echo "🚀 Optimizing Obsidian Vault Structure..."
 

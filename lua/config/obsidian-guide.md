@@ -2,7 +2,7 @@
 
 ## 📁 Folder Structure
 ```
-/home/mps/Documents/personalObsidianVault/
+/home/mps/second-brain/vaults/personal-obsidian-vault/
 ├── 00-daily/          # Unified daily notes (common for all domains)
 ├── 01-private/        # Private notes (prv-*)
 ├── 02-professional/   # Professional notes (pro-*)

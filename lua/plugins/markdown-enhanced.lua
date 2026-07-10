@@ -253,7 +253,7 @@ return {
 					-- Custom link following for Obsidian-style links
 					if opts.path:match("%.md$") then
 						-- Try to find the file in the vault
-						local vault_path = "/home/mps/Documents/personalObsidianVault/"
+						local vault_path = "/home/mps/second-brain/vaults/personal-obsidian-vault/"
 						local full_path = vault_path .. opts.path
 						
 						if vim.fn.filereadable(full_path) == 1 then

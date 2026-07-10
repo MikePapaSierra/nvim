@@ -486,9 +486,10 @@ snippet("awslambda", {
 - `<leader>onp` - New personal note
 - `<leader>onw` - New professional note
 - `<leader>onh` - New hobby note
+- `<leader>oa` - Open Agents (AI notes) folder
 
 #### Templates
-Located in `/home/mps/Documents/personalObsidianVault/templates/`:
+Located in `/home/mps/second-brain/vaults/personal-obsidian-vault/templates/`:
 - `TPL_Daily.md` - Daily note template
 - `TPL_Private.md` - Personal note template
 - `TPL_Professional.md` - Work note template
@@ -497,12 +498,15 @@ Located in `/home/mps/Documents/personalObsidianVault/templates/`:
 
 #### Directory Structure
 ```
-personalObsidianVault/
-├── dailies/           # Daily notes
-├── personal/          # Private domain
-├── professional/      # Work domain
-├── hobby/            # Interest domain
-└── templates/        # Note templates
+personal-obsidian-vault/
+├── 00-daily/          # Daily notes
+├── 01-private/        # Private domain
+├── 02-professional/   # Work domain
+├── 03-hobby/          # Interest domain
+├── inbox/             # Quick capture / unsorted
+├── templates/         # Note templates
+├── assets/            # Images and attachments
+└── archive/           # Historical notes
 ```
 
 ---

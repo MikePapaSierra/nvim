@@ -31,7 +31,7 @@ return {
 		workspaces = {
 			{
 				name = "personal",
-				path = "~/Documents/personalObsidianVault",
+				path = "~/second-brain/vaults/personal-obsidian-vault",
 				overrides = {
 					notes_subdir = "inbox",
 				},
@@ -40,7 +40,7 @@ return {
 
 		-- Daily notes configuration
 		daily_notes = {
-			folder = "dailies",
+			folder = "00-daily",
 			date_format = "%Y-%m-%d",
 			alias_format = "%B %-d, %Y",
 			default_tags = { "daily-notes" },

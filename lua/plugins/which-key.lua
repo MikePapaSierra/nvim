@@ -310,10 +310,11 @@ return {
 			{ "<leader>ol", "<cmd>ObsidianLinks<cr>", desc = "Show Links" },
 			{ "<leader>oe", "<cmd>ObsidianExtractNote<cr>", desc = "Extract Note" },
 			{ "<leader>oc", "<cmd>ObsidianToggleCheckbox<cr>", desc = "Toggle Checkbox" },
-			{ "<leader>oi", "<cmd>edit ~/Documents/personalObsidianVault/inbox<cr>", desc = "Open Inbox" },
-			{ "<leader>oD", "<cmd>edit ~/Documents/personalObsidianVault/Dashboard.md<cr>", desc = "Main Dashboard" },
-			{ "<leader>op", "<cmd>edit ~/Documents/personalObsidianVault/02-professional/Professional Dashboard.md<cr>", desc = "Professional Dashboard" },
-			{ "<leader>oh", "<cmd>edit ~/Documents/personalObsidianVault/03-hobby/Hobby Dashboard.md<cr>", desc = "Hobby Dashboard" },
+			{ "<leader>oi", "<cmd>edit ~/second-brain/vaults/personal-obsidian-vault/inbox<cr>", desc = "Open Inbox" },
+			{ "<leader>oD", "<cmd>edit ~/second-brain/vaults/personal-obsidian-vault/Dashboard.md<cr>", desc = "Main Dashboard" },
+			{ "<leader>op", "<cmd>edit ~/second-brain/vaults/personal-obsidian-vault/02-professional/Professional Dashboard.md<cr>", desc = "Professional Dashboard" },
+			{ "<leader>oh", "<cmd>edit ~/second-brain/vaults/personal-obsidian-vault/03-hobby/Hobby Dashboard.md<cr>", desc = "Hobby Dashboard" },
+			{ "<leader>oa", "<cmd>edit ~/second-brain/agents<cr>", desc = "Open Agents (AI notes)" },
 
 			-- Quick actions
 			{ "<leader>q", group = "Quit" },
