@@ -1,0 +1,503 @@
+return {
+	"epwalsh/obsidian.nvim",
+	version = "*",
+	lazy = true,
+	ft = "markdown",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+	},
+	opts = {
+		workspaces = {
+			{
+				name = "personal",
+				path = "~/Documents/personalObsidianVault",
+			},
+		},
+		
+		-- Daily notes configuration matching your current structure
+		daily_notes = {
+			folder = "dailies", -- Your actual folder name
+			date_format = "%Y-%m-%d",
+			alias_format = "%B %-d, %Y",
+			default_tags = { "daily-notes" },
+			template = "TPL_Daily.md"
+		},
+		
+		-- Enhanced templates matching your structure
+		templates = {
+			folder = "templates", -- Changed from subdir to folder
+			date_format = "%Y-%m-%d",
+			time_format = "%H:%M",
+			
+			-- Template substitutions for your workflow
+			substitutions = {
+				-- Common substitutions
+				["today"] = function()
+					return os.date("%Y-%m-%d")
+				end,
+				["now"] = function()
+					return os.date("%Y-%m-%d %H:%M")
+				end,
+				["tomorrow"] = function()
+					return os.date("%Y-%m-%d", os.time() + 24*60*60)
+				end,
+				["yesterday"] = function()
+					return os.date("%Y-%m-%d", os.time() - 86400)
+				end,
+				
+				-- Your domain templates
+				["personal-note"] = function()
+					return "Personal Note - " .. os.date("%Y-%m-%d")
+				end,
+				["professional-project"] = function()
+					return "Professional Project - " .. os.date("%Y-%m-%d")
+				end,
+				["hobby-project"] = function()
+					return "Hobby Project - " .. os.date("%Y-%m-%d")
+				end,
+				["cloud-security"] = function()
+					return "Cloud Security - " .. os.date("%Y-%m-%d")
+				end,
+				["3d-print"] = function()
+					return "3D Print Project - " .. os.date("%Y-%m-%d")
+				end,
+				["woodworking"] = function()
+					return "Woodworking Project - " .. os.date("%Y-%m-%d")
+				end,
+			},
+		},
+		
+		-- Organized note structure matching your vault
+		notes_subdir = "inbox", -- Central inbox for quick capture
+		new_notes_location = "notes_subdir",
+		
+		-- Enhanced note ID generation
+		note_id_func = function(title)
+			local suffix = ""
+			if title ~= nil then
+				-- Clean title and transform to valid filename
+				suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+			else
+				-- Use timestamp for untitled notes
+				suffix = "note-" .. tostring(os.time())
+			end
+			return suffix
+		end,
+		
+		-- Note frontmatter matching your current format
+		note_frontmatter_func = function(note)
+			local out = { 
+				id = note.id, 
+				aliases = note.aliases,
+				tags = note.tags 
+			}
+			
+			-- Add daily note specific metadata
+			if note.path and tostring(note.path):match("dailies/") then
+				out.tags = { "daily-notes" }
+			end
+			
+			return out
+		end,
+		
+		-- Professional completion settings
+		completion = {
+			nvim_cmp = true, -- Enhanced completion
+			min_chars = 2, -- Trigger completion after 2 characters
+		},
+		
+		-- Enhanced mappings for your workflow
+		mappings = {
+			-- Note creation and navigation
+			["gf"] = {
+				action = function()
+					return require("obsidian").util.gf_passthrough()
+				end,
+				opts = { noremap = false, expr = true, buffer = true },
+			},
+			
+			-- Enhanced checkbox toggling
+			["<leader>ch"] = {
+				action = function()
+					return require("obsidian").util.toggle_checkbox()
+				end,
+				opts = { buffer = true, desc = "Toggle checkbox" },
+			},
+			
+			-- Smart action based on context
+			["<cr>"] = {
+				action = function()
+					return require("obsidian").util.smart_action()
+				end,
+				opts = { buffer = true, expr = true },
+			},
+		},
+		
+		-- Professional follow URL behavior  
+		follow_url_func = function(url)
+			vim.fn.jobstart({"xdg-open", url}) -- Linux
+		end,
+		
+		-- Enhanced UI configuration
+		ui = {
+			enable = true, -- Enable enhanced UI features
+			update_debounce = 200, -- Faster UI updates
+			
+			-- Enhanced checkboxes for task management
+			checkboxes = {
+				[" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
+				["x"] = { char = "", hl_group = "ObsidianDone" },
+				[">"] = { char = "", hl_group = "ObsidianRightArrow" },
+				["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
+				["!"] = { char = "❗", hl_group = "ObsidianImportant" },
+				["?"] = { char = "❓", hl_group = "ObsidianQuestion" },
+				["/"] = { char = "◐", hl_group = "ObsidianHalfDone" },
+			},
+			
+			-- Enhanced bullet points for better organization
+			bullets = { char = "•", hl_group = "ObsidianBullet" },
+			external_link_icon = { char = "", hl_group = "ObsidianExtLinkIcon" },
+			
+			-- Reference text styling
+			reference_text = { hl_group = "ObsidianRefText" },
+			highlight_text = { hl_group = "ObsidianHighlightText" },
+			tags = { hl_group = "ObsidianTag" },
+			
+			-- Enhanced hl groups for professional appearance
+			hl_groups = {
+				-- Task states
+				ObsidianTodo = { bold = true, fg = "#f78c6c" },
+				ObsidianDone = { bold = true, fg = "#89ddff" },
+				ObsidianRightArrow = { bold = true, fg = "#f78c6c" },
+				ObsidianTilde = { bold = true, fg = "#ff5370" },
+				ObsidianImportant = { bold = true, fg = "#d73527" },
+				ObsidianQuestion = { bold = true, fg = "#ffcb6b" },
+				ObsidianHalfDone = { bold = true, fg = "#82aaff" },
+				
+				-- General styling
+				ObsidianBullet = { bold = true, fg = "#89ddff" },
+				ObsidianRefText = { underline = true, fg = "#c792ea" },
+				ObsidianExtLinkIcon = { fg = "#c792ea" },
+				ObsidianTag = { italic = true, fg = "#89ddff" },
+				ObsidianHighlightText = { bg = "#75662e" },
+			},
+		},
+		
+		-- Enhanced attachments handling
+		attachments = {
+			img_folder = "assets/images", -- Your actual folder structure
+			confirm_img_paste = true, -- Ask before pasting images
+		},
+		
+		-- Enhanced search configuration
+		finder = "telescope.nvim", -- Use Telescope for better UX
+		sort_by = "modified",
+		sort_reversed = true,
+		
+		-- Open notes in current window by default
+		open_notes_in = "current",
+		
+		-- Professional markdown configuration
+		preferred_link_style = "markdown", -- Use markdown links for better compatibility
+	},
+	
+	-- Enhanced key mappings optimized for your workflow
+	keys = {
+		-- Core Obsidian commands
+		{ "<leader>on", "<cmd>ObsidianNew<cr>", desc = "New note" },
+		{ "<leader>oo", "<cmd>ObsidianOpen<cr>", desc = "Open in Obsidian app" },
+		{ "<leader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "Show backlinks" },
+		{ "<leader>ol", "<cmd>ObsidianLinks<cr>", desc = "Show links" },
+		{ "<leader>ot", "<cmd>ObsidianToday<cr>", desc = "Open today's daily note" },
+		{ "<leader>oy", "<cmd>ObsidianYesterday<cr>", desc = "Open yesterday's daily note" },
+		{ "<leader>om", "<cmd>ObsidianTomorrow<cr>", desc = "Open tomorrow's daily note" },
+		{ "<leader>od", "<cmd>ObsidianDailies<cr>", desc = "Daily notes" },
+		{ "<leader>os", "<cmd>ObsidianSearch<cr>", desc = "Search notes" },
+		{ "<leader>oq", "<cmd>ObsidianQuickSwitch<cr>", desc = "Quick switch" },
+		{ "<leader>of", "<cmd>ObsidianFollowLink<cr>", desc = "Follow link" },
+		{ "<leader>or", "<cmd>ObsidianRename<cr>", desc = "Rename note" },
+		{ "<leader>op", "<cmd>ObsidianPasteImg<cr>", desc = "Paste image from clipboard" },
+		{ "<leader>och", "<cmd>ObsidianToggleCheckbox<cr>", desc = "Toggle checkbox" },
+		{ "<leader>oti", "<cmd>ObsidianTemplate<cr>", desc = "Insert template" },
+		{ "<leader>ott", "<cmd>ObsidianTags<cr>", desc = "Show all tags" },
+		{ "<leader>ows", "<cmd>ObsidianWorkspace<cr>", desc = "Switch workspace" },
+		
+		-- Visual mode mappings
+		{ "<leader>ol", "<cmd>ObsidianLinkNew<cr>", desc = "Create link from selection", mode = "v" },
+		{ "<leader>oe", "<cmd>ObsidianExtractNote<cr>", desc = "Extract text to new note", mode = "v" },
+		
+		-- Domain-specific quick notes (matching your actual structure)
+		{ "<leader>onp", function()
+			vim.cmd("ObsidianNew personal/" .. os.date("%Y-%m-%d") .. "-note")
+		end, desc = "New personal note" },
+		
+		{ "<leader>onh", function()
+			vim.cmd("ObsidianNew hobby/" .. os.date("%Y-%m-%d") .. "-note")
+		end, desc = "New hobby note" },
+		
+		{ "<leader>onw", function()
+			vim.cmd("ObsidianNew professonal/" .. os.date("%Y-%m-%d") .. "-note")
+		end, desc = "New professional note" },
+		
+		{ "<leader>oni", function()
+			vim.cmd("ObsidianNew 01-private/" .. os.date("%Y-%m-%d") .. "-note")
+		end, desc = "New private note" },
+		
+		-- Project templates
+		{ "<leader>opp", function()
+			local project = vim.fn.input("Professional project name: ")
+			if project ~= "" then
+				local filename = "02-professional/" .. project:gsub(" ", "-"):lower() .. "-" .. os.date("%Y-%m-%d")
+				vim.cmd("ObsidianNew " .. filename)
+				vim.defer_fn(function()
+					vim.cmd("ObsidianTemplate TPL_Professional.md")
+				end, 100)
+			end
+		end, desc = "New professional project" },
+		
+		{ "<leader>oph", function()
+			local project = vim.fn.input("Hobby project name: ")
+			if project ~= "" then
+				local filename = "03-hobby/" .. project:gsub(" ", "-"):lower() .. "-" .. os.date("%Y-%m-%d")
+				vim.cmd("ObsidianNew " .. filename)
+				vim.defer_fn(function()
+					vim.cmd("ObsidianTemplate TPL_Hobby_Project.md")
+				end, 100)
+			end
+		end, desc = "New hobby project" },
+		
+		-- Quick access to main areas (matching your structure)
+		{ "<leader>oin", "<cmd>edit /home/mps/Documents/personalObsidianVault/inbox<cr>", desc = "Open inbox" },
+		{ "<leader>ota", "<cmd>edit /home/mps/Documents/personalObsidianVault/tasks.md<cr>", desc = "Open tasks" },
+		{ "<leader>otg", "<cmd>edit /home/mps/Documents/personalObsidianVault/TagGlossary.md<cr>", desc = "Open tag glossary" },
+		
+		-- 3D Printing and Hobby shortcuts
+		{ "<leader>on3", function()
+			local project = vim.fn.input("3D Print project: ")
+			if project ~= "" then
+				local filename = "hobby/3DPrinting/" .. project:gsub(" ", "-"):lower() .. "-" .. os.date("%Y-%m-%d")
+				vim.cmd("ObsidianNew " .. filename)
+				vim.defer_fn(function()
+					vim.cmd("ObsidianTemplate TPL_Hobby_Project.md")
+				end, 100)
+			end
+		end, desc = "New 3D print project" },
+		
+		{ "<leader>onW", function()
+			local project = vim.fn.input("Woodworking project: ")
+			if project ~= "" then
+				local filename = "hobby/woodworking/" .. project:gsub(" ", "-"):lower() .. "-" .. os.date("%Y-%m-%d")
+				vim.cmd("ObsidianNew " .. filename)
+				vim.defer_fn(function()
+					vim.cmd("ObsidianTemplate TPL_Hobby_Project.md")
+				end, 100)
+			end
+		end, desc = "New woodworking project" },
+		
+		{ "<leader>one", function()
+			local project = vim.fn.input("Electronics project: ")
+			if project ~= "" then
+				local filename = "hobby/electronics/" .. project:gsub(" ", "-"):lower() .. "-" .. os.date("%Y-%m-%d")
+				vim.cmd("ObsidianNew " .. filename)
+				vim.defer_fn(function()
+					vim.cmd("ObsidianTemplate TPL_Hobby_Project.md")
+				end, 100)
+			end
+		end, desc = "New electronics project" },
+		
+		-- Enhanced Markdown UX keybindings
+		{ "<leader>mp", "<cmd>MarkdownPreview<cr>", desc = "Preview markdown", ft = "markdown" },
+		{ "<leader>ms", "<cmd>MarkdownPreviewStop<cr>", desc = "Stop preview", ft = "markdown" },
+		{ "<leader>mt", "<cmd>MarkdownPreviewToggle<cr>", desc = "Toggle preview", ft = "markdown" },
+		{ "<leader>mr", "<cmd>RenderMarkdown toggle<cr>", desc = "Toggle rendering", ft = "markdown" },
+		
+		-- Quick markdown formatting
+		{ "<leader>mb", "viw<cmd>lua require('markdown').toggle_inline_surround('strong')<cr>", desc = "Bold text", ft = "markdown" },
+		{ "<leader>mi", "viw<cmd>lua require('markdown').toggle_inline_surround('emphasis')<cr>", desc = "Italic text", ft = "markdown" },
+		{ "<leader>mc", "viw<cmd>lua require('markdown').toggle_inline_surround('code_inline')<cr>", desc = "Code text", ft = "markdown" },
+		{ "<leader>md", "viw<cmd>lua require('markdown').toggle_inline_surround('strikethrough')<cr>", desc = "Strikethrough", ft = "markdown" },
+		
+		-- Enhanced navigation
+		{ "]]", "<cmd>lua require('markdown').go_next_heading()<cr>", desc = "Next heading", ft = "markdown" },
+		{ "[[", "<cmd>lua require('markdown').go_prev_heading()<cr>", desc = "Previous heading", ft = "markdown" },
+		{ "]c", "<cmd>lua require('markdown').go_curr_heading()<cr>", desc = "Current heading", ft = "markdown" },
+		{ "]p", "<cmd>lua require('markdown').go_parent_heading()<cr>", desc = "Parent heading", ft = "markdown" },
+	},
+	
+	-- Enhanced configuration for your workflow
+	config = function(_, opts)
+		require("obsidian").setup(opts)
+		
+		-- Utility commands optimized for your vault structure
+		vim.api.nvim_create_user_command("ObsidianStats", function()
+			local stats = {
+				"📊 Obsidian Vault Statistics:",
+				"",
+				"📁 Your Folder Structure:",
+				"├── dailies/ (daily notes)",
+				"├── personal/ (personal notes)",
+				"├── professonal/ (professional notes)", -- keeping your typo for consistency
+				"├── hobby/ (hobby projects)",
+				"│   ├── 3DPrinting/",
+				"│   ├── woodworking/",
+				"│   └── electronics/",
+				"├── inbox/ (quick captures)",
+				"├── templates/ (note templates)",
+				"└── assets/ (attachments)",
+				"",
+				"🏷️  Your Tag System:",
+				"• Check TagGlossary.md for tag rules",
+				"• Max 3-5 tags per note",
+				"• Use status tags for active tracking",
+			}
+			vim.notify(table.concat(stats, "\n"), vim.log.levels.INFO, { title = "📝 Obsidian Vault" })
+		end, { desc = "Show vault statistics" })
+		
+		-- Quick domain switcher matching your structure
+		vim.api.nvim_create_user_command("ObsidianDomain", function()
+			local domains = {
+				"Personal",
+				"Professional", 
+				"Hobby",
+				"3D Printing",
+				"Woodworking",
+				"Electronics",
+				"Daily Notes",
+				"Inbox",
+				"Tasks"
+			}
+			
+			vim.ui.select(domains, {
+				prompt = "Select area:",
+			}, function(choice)
+				if choice then
+					local path = "/home/mps/Documents/personalObsidianVault/"
+					if choice == "Personal" then
+						path = path .. "personal/"
+					elseif choice == "Professional" then
+						path = path .. "professonal/"  -- keeping your typo
+					elseif choice == "Hobby" then
+						path = path .. "hobby/"
+					elseif choice == "3D Printing" then
+						path = path .. "hobby/3DPrinting/"
+					elseif choice == "Woodworking" then
+						path = path .. "hobby/woodworking/"
+					elseif choice == "Electronics" then
+						path = path .. "hobby/electronics/"
+					elseif choice == "Daily Notes" then
+						path = path .. "dailies/"
+					elseif choice == "Inbox" then
+						path = path .. "inbox/"
+					elseif choice == "Tasks" then
+						path = path .. "tasks.md"
+					end
+					
+					vim.cmd("edit " .. path)
+				end
+			end)
+		end, { desc = "Quick domain switcher" })
+		
+		-- Enhanced Markdown UX Configuration (keeping your existing setup)
+		local render_markdown_ok, render_markdown = pcall(require, "render-markdown")
+		if render_markdown_ok then
+			render_markdown.setup({
+				enabled = true,
+				max_file_size = 10.0,
+				debounce = 100,
+				
+				-- Beautiful headings
+				headings = {
+					enabled = true,
+					sign = true,
+					icons = { '󰲡 ', '󰲣 ', '󰲥 ', '󰲧 ', '󰲩 ', '󰲫 ' },
+					width = 'full',
+					border = true,
+				},
+				
+				-- Enhanced code blocks
+				code = {
+					enabled = true,
+					sign = true,
+					style = 'full',
+					border = 'thin',
+				},
+				
+				-- Enhanced checkboxes for your task system
+				checkbox = {
+					enabled = true,
+					position = 'inline',
+					unchecked = {
+						icon = '󰄱 ',
+						highlight = 'RenderMarkdownUnchecked',
+					},
+					checked = {
+						icon = '󰱒 ',
+						highlight = 'RenderMarkdownChecked',
+					},
+					custom = {
+						todo = { raw = '[>]', rendered = '󰅂 ', highlight = 'RenderMarkdownTodo' },
+						urgent = { raw = '[!]', rendered = '󰀦 ', highlight = 'RenderMarkdownUrgent' },
+						note = { raw = '[?]', rendered = '󰍨 ', highlight = 'RenderMarkdownNote' },
+						progress = { raw = '[/]', rendered = '󰡖 ', highlight = 'RenderMarkdownProgress' },
+					},
+				},
+				
+				-- Enhanced tables
+				pipe_table = {
+					enabled = true,
+					preset = 'round',
+					style = 'full',
+					cell = 'padded',
+				},
+			})
+		end
+		
+		-- Configure headlines.nvim (keeping your existing setup)
+		local headlines_ok, headlines = pcall(require, "headlines")
+		if headlines_ok then
+			headlines.setup({
+				markdown = {
+					headline_highlights = {
+						"Headline1", "Headline2", "Headline3",
+						"Headline4", "Headline5", "Headline6",
+					},
+					codeblock_highlight = "CodeBlock",
+					fat_headlines = true,
+				},
+			})
+		end
+		
+		-- Configure markdown.nvim (keeping your existing setup)
+		local markdown_nvim_ok, markdown_nvim = pcall(require, "markdown")
+		if markdown_nvim_ok then
+			markdown_nvim.setup({
+				mappings = {
+					inline_surround_toggle = "<leader>mis",
+					link_add = "<leader>mla",
+					link_follow = "<leader>mlf",
+					go_curr_heading = "]c",
+					go_parent_heading = "]p",
+					go_next_heading = "]]",
+					go_prev_heading = "[[",
+				},
+				
+				inline_surround = {
+					emphasis = { key = "e", txt = "*" },
+					strong = { key = "s", txt = "**" },
+					strikethrough = { key = "d", txt = "~~" },
+					code_inline = { key = "c", txt = "`" },
+				},
+				
+				hooks = {
+					follow_link = function(opts, fallback)
+						if opts.path:match("%.md$") then
+							vim.cmd("edit " .. opts.path)
+						else
+							fallback(opts)
+						end
+					end,
+				},
+			})
+		end
+	end,
+}

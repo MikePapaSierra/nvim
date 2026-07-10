@@ -1,0 +1,123 @@
+{
+  "Cloud Security Review": {
+    "type": "chat",
+    "opts": {
+      "template": "You are a cloud security expert. Review the following code for security vulnerabilities, best practices, and compliance with cloud security standards (AWS, Azure, GCP). Provide specific recommendations for improvement:\n\n{filecontent}",
+      "strategy": "replace",
+      "params": {
+        "model": "gpt-4o",
+        "temperature": 0.1,
+        "top_p": 0.9,
+        "max_tokens": 2048
+      }
+    }
+  },
+  "Infrastructure as Code Review": {
+    "type": "chat", 
+    "opts": {
+      "template": "Review this Infrastructure as Code (Terraform, CloudFormation, etc.) for security best practices, cost optimization, and maintainability. Focus on:\n- Security groups and network access\n- IAM policies and permissions\n- Encryption and secrets management\n- Resource tagging and organization\n\n{filecontent}",
+      "strategy": "replace",
+      "params": {
+        "model": "gpt-4o",
+        "temperature": 0,
+        "max_tokens": 2048
+      }
+    }
+  },
+  "DevSecOps Pipeline": {
+    "type": "code_edit",
+    "opts": {
+      "template": "Create or improve a DevSecOps CI/CD pipeline for this code. Include:\n- Security scanning (SAST, DAST, dependency check)\n- Container security\n- Infrastructure validation\n- Compliance checks\n- Automated testing\n\nCode context:\n{filecontent}",
+      "strategy": "replace",
+      "params": {
+        "model": "gpt-4o",
+        "temperature": 0.2,
+        "max_tokens": 3072
+      }
+    }
+  },
+  "Container Security": {
+    "type": "chat",
+    "opts": {
+      "template": "Analyze this Dockerfile/Kubernetes manifest for container security best practices:\n- Base image security\n- Privilege escalation\n- Secrets management\n- Network policies\n- Resource limits\n- Runtime security\n\n{filecontent}",
+      "strategy": "replace",
+      "params": {
+        "model": "gpt-4o",
+        "temperature": 0,
+        "max_tokens": 2048
+      }
+    }
+  },
+  "API Security Review": {
+    "type": "chat",
+    "opts": {
+      "template": "Review this API code for security vulnerabilities and best practices:\n- Authentication and authorization\n- Input validation and sanitization\n- Rate limiting\n- CORS configuration\n- Error handling\n- Logging and monitoring\n\n{filecontent}",
+      "strategy": "replace",
+      "params": {
+        "model": "gpt-4o",
+        "temperature": 0.1,
+        "max_tokens": 2048
+      }
+    }
+  },
+  "Compliance Check": {
+    "type": "chat",
+    "opts": {
+      "template": "Evaluate this code for compliance with security frameworks (SOC 2, ISO 27001, PCI DSS, GDPR). Identify:\n- Data protection requirements\n- Access control measures\n- Audit trail capabilities\n- Privacy considerations\n- Regulatory requirements\n\n{filecontent}",
+      "strategy": "replace",
+      "params": {
+        "model": "gpt-4o", 
+        "temperature": 0,
+        "max_tokens": 2048
+      }
+    }
+  },
+  "Security Documentation": {
+    "type": "code_edit",
+    "opts": {
+      "template": "Generate comprehensive security documentation for this code including:\n- Security architecture overview\n- Threat model\n- Risk assessment\n- Security controls\n- Incident response procedures\n\nCode:\n{filecontent}",
+      "strategy": "replace",
+      "params": {
+        "model": "gpt-4o",
+        "temperature": 0.3,
+        "max_tokens": 3072
+      }
+    }
+  },
+  "Secrets Management": {
+    "type": "code_edit",
+    "opts": {
+      "template": "Improve secrets management in this code. Implement proper:\n- Secret storage (AWS Secrets Manager, Azure Key Vault, etc.)\n- Secret rotation\n- Access patterns\n- Environment-specific configurations\n- Security best practices\n\n{filecontent}",
+      "strategy": "replace",
+      "params": {
+        "model": "gpt-4o",
+        "temperature": 0.2,
+        "max_tokens": 2048
+      }
+    }
+  },
+  "Zero Trust Architecture": {
+    "type": "chat",
+    "opts": {
+      "template": "Analyze this code from a Zero Trust security model perspective:\n- Identity verification\n- Least privilege access\n- Network segmentation\n- Continuous monitoring\n- Device security\n- Data protection\n\n{filecontent}",
+      "strategy": "replace",
+      "params": {
+        "model": "gpt-4o",
+        "temperature": 0.1,
+        "max_tokens": 2048
+      }
+    }
+  },
+  "Cloud Cost Optimization": {
+    "type": "chat",
+    "opts": {
+      "template": "Review this cloud infrastructure code for cost optimization opportunities while maintaining security:\n- Resource rightsizing\n- Reserved instances/commitments\n- Auto-scaling configurations\n- Storage optimization\n- Network optimization\n- Monitoring and alerting\n\n{filecontent}",
+      "strategy": "replace",
+      "params": {
+        "model": "gpt-4o",
+        "temperature": 0.2,
+        "max_tokens": 2048
+      }
+    }
+  }
+}

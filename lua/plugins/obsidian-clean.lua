@@ -1,28 +1,7 @@
 return {
 	"epwalsh/obsidian.nvim",
 	version = "*",
-	lazy = false,
-	cmd = {
-		"ObsidianOpen",
-		"ObsidianNew",
-		"ObsidianSearch",
-		"ObsidianQuickSwitch",
-		"ObsidianFollowLink",
-		"ObsidianBacklinks",
-		"ObsidianTags",
-		"ObsidianToday",
-		"ObsidianYesterday",
-		"ObsidianTomorrow",
-		"ObsidianDailies",
-		"ObsidianWorkspace",
-		"ObsidianRename",
-		"ObsidianLinks",
-		"ObsidianExtractNote",
-		"ObsidianToggleCheckbox",
-		"ObsidianTemplate",
-		"ObsidianPasteImg",
-		"ObsidianLinkNew",
-	},
+	lazy = true,
 	ft = "markdown",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
@@ -32,9 +11,6 @@ return {
 			{
 				name = "personal",
 				path = "~/second-brain/vaults/personal-obsidian-vault",
-				overrides = {
-					notes_subdir = "inbox",
-				},
 			},
 		},
 
