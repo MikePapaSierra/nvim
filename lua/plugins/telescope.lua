@@ -463,11 +463,23 @@ return {
 						},
 					},
 					project = {
-						base_dirs = {
-							"~/.config",
-							"~/Documents",
-							{ "~/Downloads", max_depth = 1 }, -- Search Downloads with limited depth
-						},
+						base_dirs = (function()
+							-- Only include base dirs that actually exist to avoid
+							-- plenary.scandir "is not accessible" errors on startup
+							local candidates = {
+								{ "~/.config" },
+								{ "~/Documents" },
+								{ "~/Downloads", max_depth = 1 }, -- Search Downloads with limited depth
+							}
+							local base_dirs = {}
+							for _, candidate in ipairs(candidates) do
+								local path = vim.fn.expand(candidate[1])
+								if vim.loop.fs_stat(path) then
+									table.insert(base_dirs, candidate)
+								end
+							end
+							return base_dirs
+						end)(),
 						hidden_files = true,
 						theme = "ivy", -- Use ivy theme for consistency
 						order_by = "asc",
