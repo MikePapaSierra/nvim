@@ -1,38 +1,40 @@
 return {
 	{
 		"christoomey/vim-tmux-navigator",
-		event = "VeryLazy",
-		keys = {
-			-- Enhanced tmux navigation (VS Code style)
-			{ "<C-h>", "<cmd>TmuxNavigateLeft<cr>", desc = "󰁍 Navigate left (tmux)" },
-			{ "<C-j>", "<cmd>TmuxNavigateDown<cr>", desc = "󰁅 Navigate down (tmux)" },
-			{ "<C-k>", "<cmd>TmuxNavigateUp<cr>", desc = "󰁝 Navigate up (tmux)" },
-			{ "<C-l>", "<cmd>TmuxNavigateRight<cr>", desc = "󰁔 Navigate right (tmux)" },
-		},
+		lazy = false,
 		init = function()
-			-- Enhanced tmux integration settings
 			vim.g.tmux_navigator_no_mappings = 1
-			vim.g.tmux_navigator_save_on_switch = 2
-			vim.g.tmux_navigator_disable_when_zoomed = 1
 		end,
 		config = function()
-			-- Custom tmux navigation with better integration
-			local function tmux_navigate(direction)
-				local tmux_directions = {
-					h = "left",
-					j = "down", 
-					k = "up",
-					l = "right"
-				}
-				
-				local tmux_dir = tmux_directions[direction]
-				if tmux_dir then
-					vim.fn.system("tmux select-pane -" .. string.upper(direction:sub(1,1)))
+			local function navigate(wincmd, direction)
+				local previous_window = vim.api.nvim_get_current_win()
+				vim.cmd("wincmd " .. wincmd)
+				if vim.api.nvim_get_current_win() ~= previous_window then
+					return
+				end
+
+				if vim.env.HERDR_PANE_ID and vim.env.HERDR_PANE_ID ~= "" then
+					local herdr = vim.env.HERDR_BIN_PATH
+					if herdr == nil or herdr == "" then
+						herdr = "herdr"
+					end
+					vim.fn.system({ herdr, "pane", "focus", "--direction", direction, "--pane", vim.env.HERDR_PANE_ID })
+				elseif vim.env.TMUX and vim.env.TMUX ~= "" then
+					local tmux_directions = { left = "Left", down = "Down", up = "Up", right = "Right" }
+					pcall(vim.cmd, "TmuxNavigate" .. tmux_directions[direction])
 				end
 			end
-			
-			-- Enhanced tmux awareness (notification disabled)
-			-- Silent tmux integration - no notifications needed
+
+			local function map(lhs, wincmd, direction)
+				vim.keymap.set("n", lhs, function()
+					navigate(wincmd, direction)
+				end, { silent = true, noremap = true })
+			end
+
+			map("<C-h>", "h", "left")
+			map("<C-j>", "j", "down")
+			map("<C-k>", "k", "up")
+			map("<C-l>", "l", "right")
 		end,
 	},
 }
