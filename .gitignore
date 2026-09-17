@@ -4,3 +4,4 @@ autoload/*.*
 spell/*
 .luarc.json
 lazy-lock.json
+lua/plugins/opencode.lua
