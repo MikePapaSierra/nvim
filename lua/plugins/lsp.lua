@@ -258,7 +258,7 @@ return {
 				end
 
 				-- Auto-formatting on save for specific file types
-				if client.supports_method("textDocument/formatting") then
+				if client:supports_method("textDocument/formatting") then
 					local format_filetypes = {
 						"lua", "python", "go", "terraform", "json", "yaml", 
 						"javascript", "typescript", "html", "css", "markdown"
@@ -1052,7 +1052,7 @@ return {
 				
 				-- Enhanced on_attach with formatting
 				on_attach = function(client, bufnr)
-					if client.supports_method("textDocument/formatting") then
+					if client:supports_method("textDocument/formatting") then
 						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 						vim.api.nvim_create_autocmd("BufWritePre", {
 							group = augroup,
