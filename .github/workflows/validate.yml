@@ -1,0 +1,57 @@
+name: Validate Neovim configuration
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nvim-validation-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate configuration
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NVIM_VERSION: v0.12.5
+      XDG_CONFIG_HOME: ${{ github.workspace }}/.ci/config
+      XDG_DATA_HOME: ${{ github.workspace }}/.ci/data
+      XDG_STATE_HOME: ${{ github.workspace }}/.ci/state
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Neovim
+        run: |
+          curl --fail --location --retry 3 --output nvim.tar.gz \
+            "https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/nvim-linux-x86_64.tar.gz"
+          tar --extract --gzip --file nvim.tar.gz
+          echo "$PWD/nvim-linux-x86_64/bin" >> "$GITHUB_PATH"
+
+      - name: Prepare isolated Neovim directories
+        run: |
+          mkdir --parents "$XDG_CONFIG_HOME"
+          ln --symbolic "$GITHUB_WORKSPACE" "$XDG_CONFIG_HOME/nvim"
+
+      - name: Check Lua syntax
+        run: |
+          nvim --headless --clean \
+            "+lua for _, path in ipairs(vim.fn.systemlist({ 'git', 'ls-files', '*.lua' })) do local chunk, err = loadfile(path); if not chunk then error(path .. ': ' .. err) end end" \
+            "+qa!"
+
+      - name: Synchronize plugins
+        run: nvim --headless "+Lazy! sync" "+qa!"
+
+      - name: Open Markdown without errors
+        run: |
+          output="$(nvim --headless README.md '+set filetype=markdown' '+sleep 300m' '+qa!' 2>&1)"
+          printf '%s\n' "$output"
+          if grep --extended-regexp --quiet 'Error detected while processing|Error in command line:|stack traceback:' <<<"$output"; then
+            exit 1
+          fi
