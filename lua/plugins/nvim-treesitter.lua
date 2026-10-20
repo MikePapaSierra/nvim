@@ -7,6 +7,37 @@ return {
 			"nvim-treesitter/nvim-treesitter-context", -- Show current function context
 		},
 		build = ":TSUpdate",
+		init = function()
+			if vim.fn.has("nvim-0.12") == 0 then
+				return
+			end
+
+			-- Neovim 0.12 passes an invalid capture to the upstream directive.
+			-- Capture the fenced-code language directly until it is fixed upstream.
+			vim.treesitter.query.set("markdown", "injections", [[
+(fenced_code_block
+  (info_string (language) @injection.language)
+  (code_fence_content) @injection.content)
+
+((html_block) @injection.content
+  (#set! injection.language "html")
+  (#set! injection.combined)
+  (#set! injection.include-children))
+
+((minus_metadata) @injection.content
+  (#set! injection.language "yaml")
+  (#offset! @injection.content 1 0 -1 0)
+  (#set! injection.include-children))
+
+((plus_metadata) @injection.content
+  (#set! injection.language "toml")
+  (#offset! @injection.content 1 0 -1 0)
+  (#set! injection.include-children))
+
+([(inline) (pipe_table_cell)] @injection.content
+  (#set! injection.language "markdown_inline"))
+			]])
+		end,
 		opts = {
 			ensure_installed = {
 				-- Core Neovim languages

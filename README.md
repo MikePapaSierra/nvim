@@ -81,6 +81,13 @@ nvim
 3. **Check health**: `:checkhealth`
 4. **View status**: `:ChatGPTStatus`, `:AvanteBuild`
 
+### Updating Plugins
+
+Run `:Lazy sync` to update and rebuild plugins. Avante requires `make`, a C
+compiler, and Rust; CopilotChat downloads its tokenizer through
+`make tiktoken`. The pull-request workflow runs this synchronization, checks
+every tracked Lua file for syntax errors, and opens Markdown headlessly.
+
 ## 📚 Documentation
 
 - **[🔌 Plugin Guide](docs/PLUGINS.md)** - Comprehensive plugin documentation
