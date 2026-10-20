@@ -20,6 +20,7 @@ jobs:
     timeout-minutes: 20
     env:
       NVIM_VERSION: v0.12.5
+      NVIM_CI: "1"
       XDG_CONFIG_HOME: ${{ github.workspace }}/.ci/config
       XDG_DATA_HOME: ${{ github.workspace }}/.ci/data
       XDG_STATE_HOME: ${{ github.workspace }}/.ci/state

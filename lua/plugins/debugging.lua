@@ -182,13 +182,15 @@ return {
 			"mfussenegger/nvim-dap",
 		},
 		config = function()
+			local install_mason_packages = vim.env.NVIM_CI ~= "1"
+
 			require("mason-nvim-dap").setup({
-				ensure_installed = {
+				ensure_installed = install_mason_packages and {
 					"python",
 					"delve", -- Go debugger
 					"codelldb", -- C/C++/Rust
-				},
-				automatic_installation = true,
+				} or {},
+				automatic_installation = install_mason_packages,
 			})
 		end,
 	},
