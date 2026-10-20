@@ -18,6 +18,8 @@ return {
 			{ "hrsh7th/cmp-nvim-lsp" },
 		},
 		config = function()
+			local install_mason_packages = vim.env.NVIM_CI ~= "1"
+
 			-- Enhanced Mason setup with better UI
 			require("mason").setup({
 				ui = {
@@ -40,8 +42,8 @@ return {
 
 			-- Comprehensive LSP server configuration for cloud security engineering
 			require("mason-lspconfig").setup({
-				automatic_installation = true,
-				ensure_installed = {
+				automatic_installation = install_mason_packages,
+				ensure_installed = install_mason_packages and {
 					-- Core languages
 					"lua_ls", -- Lua (Neovim config)
 					"bashls", -- Bash/Shell scripting
@@ -77,12 +79,12 @@ return {
 					-- Additional useful servers
 					"vimls", -- Vim script
 					"powershell_es", -- PowerShell (Windows environments)
-				},
+				} or {},
 			})
 
 			-- Enhanced tool installation for cloud security workflow
 			require("mason-tool-installer").setup({
-				ensure_installed = {
+				ensure_installed = install_mason_packages and {
 					-- Python ecosystem (formatters/linters, not LSPs)
 					"black", -- Code formatter
 					"isort", -- Import sorter
@@ -139,9 +141,9 @@ return {
 					-- Additional security tools
 					"semgrep", -- Static analysis security scanner
 					"gitleaks", -- Git secrets scanner
-				},
+				} or {},
 				auto_update = false,
-				run_on_start = true,
+				run_on_start = install_mason_packages,
 				start_delay = 3000, -- 3 second delay
 				debounce_hours = 5, -- Only check every 5 hours
 			})
@@ -256,7 +258,7 @@ return {
 				end
 
 				-- Auto-formatting on save for specific file types
-				if client.supports_method("textDocument/formatting") then
+				if client:supports_method("textDocument/formatting") then
 					local format_filetypes = {
 						"lua", "python", "go", "terraform", "json", "yaml", 
 						"javascript", "typescript", "html", "css", "markdown"
@@ -1050,7 +1052,7 @@ return {
 				
 				-- Enhanced on_attach with formatting
 				on_attach = function(client, bufnr)
-					if client.supports_method("textDocument/formatting") then
+					if client:supports_method("textDocument/formatting") then
 						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 						vim.api.nvim_create_autocmd("BufWritePre", {
 							group = augroup,
